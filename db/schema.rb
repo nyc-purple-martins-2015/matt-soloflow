@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112215034) do
+ActiveRecord::Schema.define(version: 20151113194445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "content",                    null: false
+    t.integer  "question_id",                null: false
+    t.integer  "user_id",                    null: false
+    t.boolean  "best",        default: true, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commentable_type", null: false
+    t.integer  "commentable_id",   null: false
+    t.string   "content",          null: false
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "question_tags", force: :cascade do |t|
     t.integer  "question_id", null: false
@@ -29,17 +47,6 @@ ActiveRecord::Schema.define(version: 20151112215034) do
     t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.string   "respondable_type",                 null: false
-    t.integer  "respondable_id",                   null: false
-    t.integer  "user_id",                          null: false
-    t.text     "content",                          null: false
-    t.boolean  "answer",           default: false, null: false
-    t.boolean  "best",             default: false, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
   end
 
   create_table "tags", force: :cascade do |t|
