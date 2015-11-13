@@ -1,0 +1,11 @@
+<div class="tags-container">
+  <h2> All Tags: </h2>
+
+  <% @tags.each do |tag| %>
+    <ul>
+      <li><%= link_to tag.category, [@question, tag] %></li>
+    </ul>
+  <% end %>
+</div>
+
+
