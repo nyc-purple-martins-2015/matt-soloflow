@@ -11,10 +11,10 @@ describe SessionsController do
 
   context "#create" do
     let(:user) { FactoryGirl.create :user }
+    subject { post :create, :user => { username: user.username, password: user.password, email: user.email } }
 
     it "redirects to root path if correct credentials" do
-     expect {
-      post :create, username: user.username, password: user.password, email: user.email}.to redirect_to questions_path
+      expect(subject).to redirect_to questions_path(assigns[:user])
     end
   end
 
