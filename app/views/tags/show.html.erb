@@ -1,2 +1,11 @@
 <h2 class="page-header">Results for the tag "<%= @tag.category %>":</h2>
+
 <%= render  "questions/questions_list", layout: false %>
+
+<div class="buttons">
+  <% if logged_in? %>
+    <p class="button"><%= link_to 'Ask', new_question_path %></p>
+  <% end %>
+
+  <p class="button"><%= link_to "All Tags", tags_path %></p>
+</div>
