@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
     @user = current_user
     @question = Question.find(params[:id])
     @answers = @question.answers
+    @tags = @question.tags
     ## refactor to query with includes, unsure of querying relationships in the view
   end
 
