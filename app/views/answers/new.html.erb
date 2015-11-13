@@ -1,0 +1,10 @@
+<div>
+<%= form_for @answer, url: new_question_answer_path do |f| %>
+
+  <p><%= f.label :content %></p>
+  <p><%= f.text_area :content %></p>
+
+  <%= f.submit %>
+<% end %>
+</div>
+
