@@ -36,12 +36,20 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+
+    redirect_to questions_path
+  end
+
   private
 
   def answer_params
     params.require(:answer).permit(:user_id, :content)
   end
 
+#TODO: Add back when questions are fixed.
  # def question_params
     # params.require(:question).permit(:title, :content)
   # end
