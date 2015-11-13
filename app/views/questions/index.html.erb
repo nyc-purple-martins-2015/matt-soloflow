@@ -1,18 +1,12 @@
-<h1> INDEX </h1>
+<h1 class="page-header">All Questions:</h1>
 
-<p> ADD LOGIN/SIGNUP + Logic </p>
 
-<% if logged_in? %>
-<%= link_to 'Add New Question', new_question_path %>
-<% end %>
+<%= render  "questions_list", layout: false %>
 
-<ul>
-  <% @questions.each do |question| %>
-    <li> Votes: <%= question.votes.count %> | Answers: <%= question.responses.where(answer: 'true').count %> | <%= link_to question.title, question_path(question) %> </li>
+<div class="buttons">
+  <% if logged_in? %>
+    <p class="button"><%= link_to 'Ask', new_question_path %></p>
   <% end %>
-</ul>
 
-
-
-
-<h3> TAGS (ADD LINK TO TAGS) </h3>
+  <p class="button"><%= link_to "All Tags", tags_path %></p>
+</div>

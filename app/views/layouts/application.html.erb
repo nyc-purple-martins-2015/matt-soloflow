@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Matt's SoloFlow</h1>
 <header>
+<h1><%= link_to "Matt's SoloFlow", root_path %></h1>
+</header>
   <% if logged_in? %>
+  <navbar>
     <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
     <% else %>
     <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
+  </navbar>
   <% end %>
-</header>
 <%= yield %>
 
 </body>
