@@ -15,9 +15,9 @@ describe UsersController do
   end
 
   context "#create" do
-    it "doesn't create a user when params are invalid" do
+    it "creates a user when params are valid" do
      expect {
-      post :create, user: FactoryGirl.attributes_for(:user)}.to change(User, :count).by(0)
+      post :create, user: FactoryGirl.attributes_for(:user)}.to change(User, :count).by(1)
     end
   end
 
