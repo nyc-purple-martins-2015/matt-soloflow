@@ -1,12 +1,15 @@
 <h2 class="page-header">Results for the tag "<%= @tag.category %>":</h2>
   <% @questions.each do |question| %>
+
 <div class="questions-container">
     <h3><%= question.title %></h3>
     <p><%= question.content.first(50) %>...</p>
-    <% #TODO: Change line 6 to scoping %>
-    <p>By <%= link_to question.user.username %></p>
+    <% #TODO: Change line 6 to scoping?, profile page %>
+    <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
     <% #TODO: Add # of likes here %>
     <p>Posted on <%= question.formatted_creation_date %> |
     Updated <%= question.formatted_last_updated %></p>
   <% end %>
 </div>
+<p class="button"><%= link_to "Ask", new_question_path %></p>
+<p class="button"><%= link_to "All Tags", tags_path %></p>

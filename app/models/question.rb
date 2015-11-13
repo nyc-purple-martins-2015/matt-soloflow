@@ -7,7 +7,10 @@ class Question < ActiveRecord::Base
 
   validates :title, :content, :user_id, presence: true
 
-# Dry these up
+  scope :recent, -> { where('created_at = ?', Time.now - 5.minute) }
+  #TODO: scope :most_popular, -> { where(votes...): :desc }
+
+  # Dry these up
   def formatted_creation_date
     self.created_at.strftime("%m-%d-%y")
   end
