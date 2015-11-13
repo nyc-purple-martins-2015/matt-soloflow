@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :questions do
+    resources :answers
   end
 
   root 'questions#index'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   resources :tags, :only => [:index, :show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
