@@ -9,18 +9,30 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = User.find(session[:user_id])
     @question = @user.questions.new(question_params)
+    @tag = Tag.new
+    @tags = tag_params[:tags].split(",")
+      if @question.save
+        @tags.each do |tag|
+          @question.tags << Tag.find_or_create_by(category: tag.strip)
+        end
+        redirect_to question_path(@question)
+      else
+        render :new
+      end
   end
 
-  def show
-  end
+##MAKE A SHOW VIEW AND CONTROLLER
 
 
 private
 
   def question_params
-    params.require(:todo).permit(:title, :content)
+    params.require(:question).permit(:title, :content)
   end
 
+  def tag_params
+    params.require(:question).permit(:tags)
+  end
 end
