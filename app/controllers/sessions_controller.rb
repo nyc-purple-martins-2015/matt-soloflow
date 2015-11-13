@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to questions_path
     else
       flash[:alert] = "username or password is invalid"
-      render :new
+      redirect_to login_path
     end
   end
 
