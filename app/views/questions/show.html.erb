@@ -1,1 +1,11 @@
-<%= @question.title %>
+<div>
+<h2> <%= @question.title %> </h2>
+<%= @question.content %>
+<p>Votes <%= @question.votes.count %> | Answers: <%= @question.answers.length %> | Author: <%= @question.user.username %> </p>
+<p> <%= link_to 'Up' %> <%= link_to 'Down' %> </p>
+<p> Tags: <% @tags.each do |tag| %> <%= link_to tag.category %>  <% end %></p>
+
+</div>
+
+
+**RENDER ANSWER PARTIAL**
