@@ -7,4 +7,6 @@ class Tag < ActiveRecord::Base
   def recent_questions
     questions.order(created_at: :desc).limit(20)
   end
+
+
 end

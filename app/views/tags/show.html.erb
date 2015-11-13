@@ -1,0 +1,12 @@
+<h2 class="page-header">Results for the tag "<%= @tag.category %>":</h2>
+  <% @questions.each do |question| %>
+<div class="questions-container">
+    <h3><%= question.title %></h3>
+    <p><%= question.content.first(50) %>...</p>
+    <% #TODO: Change line 6 to scoping %>
+    <p>By <%= link_to question.user.username %></p>
+    <% #TODO: Add # of likes here %>
+    <p>Posted on <%= question.formatted_creation_date %> |
+    Updated <%= question.formatted_last_updated %></p>
+  <% end %>
+</div>

@@ -1,9 +1,10 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tags.all
+    @tags = Tag.all
   end
 
   def show
-    @tag =Tag.includes(:questions).find(params[:id])
+    @tag =Tag.find(params[:id])
+    @questions = @tag.questions
   end
 end
