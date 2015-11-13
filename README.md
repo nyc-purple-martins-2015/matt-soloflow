@@ -1,4 +1,4 @@
-# MattSoloflow
+# Matt Soloflow
 A Stack Overflow clone for your edification, education, and entertainment.
 
 ## User Stories
