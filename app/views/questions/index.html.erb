@@ -2,11 +2,13 @@
 
 <p> ADD LOGIN/SIGNUP + Logic </p>
 
-<%= link_to 'Add New Question', questions_new_path %>
+<% if logged_in? %>
+<%= link_to 'Add New Question', new_question_path %>
+<% end %>
 
 <ul>
   <% @questions.each do |question| %>
-    <li> Votes: <%= question.votes.count %> | Answers: <%= question.responses.where(answer: 'true').count %> | Question: <%= question.title %> </li>
+    <li> Votes: <%= question.votes.count %> | Answers: <%= question.responses.where(answer: 'true').count %> | <%= link_to question.title, question_path(question) %> </li>
   <% end %>
 </ul>
 
