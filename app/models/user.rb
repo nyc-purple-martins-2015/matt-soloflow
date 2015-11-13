@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
   validates :username, :email, presence: true, uniqueness: true
 
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
+
 end
