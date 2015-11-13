@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # root :to => redirect 'questions#index'
 
-  get 'questions' => 'questions#index'
-  get 'questions/new' => 'questions#new'
+  resources :questions do
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
