@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = current_user
     @question = @user.questions.new(question_params)
     @tags = tag_params[:tags].split(",")
       if @question.save
@@ -25,8 +25,12 @@ class QuestionsController < ApplicationController
       end
   end
 
-##MAKE A SHOW VIEW AND CONTROLLER
-
+  def show
+    @user = current_user
+    @question = Question.find(params[:id])
+    @answers = @question.answers
+    ## refactor to query with includes, unsure of querying relationships in the view
+  end
 
 private
 
