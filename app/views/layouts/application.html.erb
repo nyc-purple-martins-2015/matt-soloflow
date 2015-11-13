@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Matt's SoloFlow</h1>
 <header>
+<h1><%= link_to "Matt's SoloFlow", root_path %></h1>
   <% if logged_in? %>
     <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
     <% else %>
