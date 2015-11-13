@@ -30,8 +30,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+
+end
+
+group :test do
   gem 'byebug'
   gem 'capybara'
   gem 'factory_girl_rails'
@@ -39,7 +43,9 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'simplecov', :require => false
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
