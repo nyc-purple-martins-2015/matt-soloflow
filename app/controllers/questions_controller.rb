@@ -11,11 +11,13 @@ class QuestionsController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @question = @user.questions.new(question_params)
-    @tag = Tag.new
     @tags = tag_params[:tags].split(",")
       if @question.save
         @tags.each do |tag|
-          @question.tags << Tag.find_or_create_by(category: tag.strip)
+          new_tag = Tag.find_or_create_by(category: tag.strip)
+          unless @question.tags.include?(new_tag)
+            @question.tags << new_tag
+          end
         end
         redirect_to question_path(@question)
       else
