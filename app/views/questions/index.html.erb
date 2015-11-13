@@ -1,1 +1,16 @@
-<h1> THIS IS THE INDEX </h1>
+<h1> INDEX </h1>
+
+<p> ADD LOGIN/SIGNUP + Logic </p>
+
+<%= link_to 'Add New Question', questions_new_path %>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li> Votes: <%= question.votes.count %> | Answers: <%= question.responses.where(answer: 'true').count %> | Question: <%= question.title %> </li>
+  <% end %>
+</ul>
+
+
+
+
+<h3> TAGS (ADD LINK TO TAGS) </h3>
