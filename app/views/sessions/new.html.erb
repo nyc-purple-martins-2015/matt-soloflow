@@ -1,11 +1,11 @@
 <h3>If you are a returning user, please log in below:</h3>
 
-<%= form_for @user, url: session_create_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br/>
+<%= form_tag login_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %><br/>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br/>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br/>
 
-  <%= f.submit "Log In"%>
+  <%= submit_tag "Log In"%>
 <% end %>
