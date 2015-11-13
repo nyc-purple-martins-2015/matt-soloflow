@@ -1,14 +1,20 @@
 <div class="questions-container">
-  <% @questions.each do |question| %>
-
-    <h3><%= question.title %></h3>
-    <p><%= question.content.first(50) %>...</p>
-    <% #TODO: Change line 6 to scoping?, profile page %>
-    <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
-    <% #TODO: Add # of likes here %>
-    <p>Posted on <%= question.formatted_creation_date %> |
-    Updated <%= question.formatted_last_updated %></p>
-  <% end %>
+      <% @questions.each do |question| %>
+        <div class="question">
+          <h3><%= question.title %></h3>
+          <p><%= question.content.first(50) %>...</p>
+          <% #TODO: Change line 6 to scoping?, profile page %>
+          <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
+          <p>Posted on <%= question.formatted_creation_date %> |
+          Updated <%= question.formatted_last_updated %></p>
+          <% #TODO: Add # of likes here %>
+          <% #TODO: Abstract out query from view! Include? Scope? %>
+          <p>Votes <%= question.votes.count %> | Answers: <%= question.responses.where(answer: 'true').count %></p>
+        </div>
+      <% end %>
 </div>
-<p class="button"><%= link_to "Ask", new_question_path %></p>
-<p class="button"><%= link_to "All Tags", tags_path %></p>
+
+<div class="buttons">
+  <p class="button"><%= link_to "Ask", new_question_path %></p>
+  <p class="button"><%= link_to "All Tags", tags_path %></p>
+</div>
