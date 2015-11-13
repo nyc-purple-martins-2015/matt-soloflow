@@ -5,6 +5,6 @@ class Tag < ActiveRecord::Base
   validates :category, presence: true
 
   def recent_questions
-      questions.order(created_at: :desc).limit(20)
+    questions.order(created_at: :desc).limit(20)
   end
 end
