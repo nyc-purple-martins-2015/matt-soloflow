@@ -9,15 +9,18 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = current_user
     @question = @user.questions.new(question_params)
   end
 
+  def show
+  end
+
+
+private
 
   def question_params
     params.require(:todo).permit(:title, :content)
   end
-
-
 
 end

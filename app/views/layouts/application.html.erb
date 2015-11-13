@@ -8,6 +8,13 @@
 </head>
 <body>
 <h1>Matt's SoloFlow</h1>
+<header>
+  <% if logged_in? %>
+    <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
+    <% else %>
+    <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
+  <% end %>
+</header>
 <%= yield %>
 
 </body>
