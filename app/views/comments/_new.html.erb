@@ -2,8 +2,8 @@
   <%= form_for Comment.new do |f| %>
     <p><%= f.label :comment %></p>
     <p><%= f.text_area :content %></p>
-    <%=f.hidden_field :commentable_type, :value => @question.class.name %>
-    <%=f.hidden_field :commentable_id, :value => @question.id %>
+    <%=f.hidden_field :commentable_type, :value => type.class.name %>
+    <%=f.hidden_field :commentable_id, :value => type.id %>
     <p><%= f.submit %></p>
   <% end %>
 </div>
