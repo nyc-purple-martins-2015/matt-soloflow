@@ -2,13 +2,14 @@
   <div class="question">
     <h2> <%= @question.title %> </h2>
     <%= @question.content %>
-    <p>Votes <%= @question.votes.count %> | Answers: <%= @question.answers.length %> | Author: <%= link_to @question.user.username, user_path(@question.user.id) %> </p>
+     <p>Vote value: <%= @question.votes.sum(:value) %></p>
+      <p> Answers: <%= @question.answers.length %> | Author: <%= link_to @question.user.username, user_path(@question.user.id) %> </p>
 
-  <div class="vote-buttons">
-    <%= button_to 'Up' %> <%= button_to 'Down' %>
   <div class="answer-button">
     <%= button_to 'Give an Answer', new_question_answer_path(@question), method: :get %>
   </div>
+
+  <%= render partial: 'votes/new', layout: false, locals: {parent: @question} %>
 </div>
 
   <p class="tags"> Tags:
@@ -24,6 +25,8 @@
     <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
     <p><%= comment.content %> </p>
     <p>Posted on: <%= comment.formatted_creation_date %></p>
+    <p>Vote value: <%= comment.votes.sum(:value) %></p>
+    <%= render partial: 'votes/new', layout: false, locals: {parent: comment} %>
   <% end %>
 </div>
 
