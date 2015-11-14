@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    # @user_questions = User.includes(:questions).where(id: current_user.id)
   end
 
 private

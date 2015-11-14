@@ -1,2 +1,23 @@
-<h1>Welcome <%= @user.username %> </h1> 
+<h1>Welcome <%= @user.username %> </h1>
+
+<% if @user.questions %>
+<h3> Here are the questions you have asked: </h3>
+<% @user.questions.each do |question| %>
+  <p><%= link_to question.title, question_path(question) %></p>
+<% end %>
+<% end %>
+
+<% if @user.answers %>
+<h3> Here are the questions you have answered: </h3>
+<% @user.answers.each do |answer| %>
+  <p><%= link_to answer.content, question_path(answer.question_id) %></p>
+<% end %>
+<% end %>
+
+<% if @user.comments %>
+<h3> Here are your comments: </h3>
+<% @user.comments.each do |comment| %>
+  <p><%= link_to comment.content, question_path(comment.commentable_id) %></p>
+<% end %>
+<% end %>
 
