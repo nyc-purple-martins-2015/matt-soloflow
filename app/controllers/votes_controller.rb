@@ -17,16 +17,12 @@ def create
       end
     end
   end
-
 end
 
 
 
 private
-
   def vote_params
     params.require(:vote).permit(:value, :votable_type, :votable_id)
   end
-
-
 end
