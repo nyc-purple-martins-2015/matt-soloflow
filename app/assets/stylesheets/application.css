@@ -70,9 +70,6 @@ navbar {
   border: 3px solid black;
 }
 
-/*.buttons {
-  margin: 0;
-}*/
 
 .button_to {
   display: inline-block;
@@ -80,7 +77,6 @@ navbar {
   border: 3px solid black;
   text-align: center;
   padding: .3em;
-  /*margin: 0;*/
 }
 
 .inputbutton {
@@ -97,4 +93,18 @@ navbar {
 
 .comments {
   border: 3px solid black;
+}
+
+.create-answer{
+  margin-top: 5em;
+  padding: 1em;
+  border: 3px solid black;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+#answer_content {
+  width: 100%;
+  height: 20em;
 }
