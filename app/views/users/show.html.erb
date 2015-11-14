@@ -1,23 +1,29 @@
 <h1>Welcome <%= @user.username %> </h1>
 
-<% if @user.questions %>
-<h3> Here are the questions you have asked: </h3>
-<% @user.questions.each do |question| %>
+<% if user_questions? %>
+  <h3> Here are the questions you have asked: </h3>
+  <% @user.questions.each do |question| %>
   <p><%= link_to question.title, question_path(question) %></p>
-<% end %>
+  <% end %>
+  <% else %>
+  <p> You have not asked any questions. </p>
 <% end %>
 
-<% if @user.answers %>
-<h3> Here are the questions you have answered: </h3>
-<% @user.answers.each do |answer| %>
+<% if user_answers? %>
+  <h3> Here are the questions you have answered: </h3>
+  <% @user.answers.each do |answer| %>
   <p><%= link_to answer.content, question_path(answer.question_id) %></p>
-<% end %>
+  <% end %>
+  <% else %>
+  <p> You have not answered any questions. </p>
 <% end %>
 
-<% if @user.comments %>
-<h3> Here are your comments: </h3>
-<% @user.comments.each do |comment| %>
+<% if user_comments? %>
+  <h3> Here are your comments: </h3>
+  <% @user.comments.each do |comment| %>
   <p><%= link_to comment.content, question_path(comment.commentable_id) %></p>
-<% end %>
+  <% end %>
+  <% else %>
+  <p> You have not commented yet. </p>
 <% end %>
 
