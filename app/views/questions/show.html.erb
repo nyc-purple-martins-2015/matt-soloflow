@@ -21,7 +21,9 @@
 <div class="comments">
   <h3> Comments: </h3>
   <% @question.comments.each do |comment| %>
-    <p> <%= comment.content %> </p>
+    <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
+    <p><%= comment.content %> </p>
+    <p>Posted on: <%= comment.formatted_creation_date %></p>
   <% end %>
 </div>
 
