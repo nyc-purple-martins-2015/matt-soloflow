@@ -12,5 +12,13 @@
           <div class="vote-buttons">
             <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
           </div>
+          <div>
+            <% answer.comments.each do |comment| %>
+              <p><%= comment.content %></p>
+            <% end %>
+          </div>
+          <div>
+            <%= render partial: 'comments/new', layout: false, locals: { type: answer} %>
+          </div>
 </div>
 <% end %>

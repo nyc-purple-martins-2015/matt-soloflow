@@ -30,7 +30,7 @@
   <% end %>
 </div>
 
-<%= render partial: 'comments/new', layout: false %>
+<%= render partial: 'comments/new', layout: false, locals: { type: @question} %>
 
 <%= render  "answers/show_answer", layout: false %>
 
