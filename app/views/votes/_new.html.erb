@@ -1,0 +1,13 @@
+  <%= form_for Vote.new do |f| %>
+  <%= f.hidden_field :value, :value => 1 %>
+  <%= f.hidden_field :votable_type, :value => parent.class.name %>
+  <%= f.hidden_field :votable_id, :value => parent.id  %>
+  <%= f.submit "Up Vote" %>
+  <% end %>
+
+  <%= form_for Vote.new do |f| %>
+  <%= f.hidden_field :value, :value => -1 %>
+  <%= f.hidden_field :votable_type, :value => parent.class.name %>
+  <%= f.hidden_field :votable_id, :value => parent.id  %>
+  <%= f.submit "Down Vote" %>
+  <% end %>

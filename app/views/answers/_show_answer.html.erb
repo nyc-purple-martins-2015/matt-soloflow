@@ -7,10 +7,10 @@
           Updated <%= answer.formatted_last_updated %></p>
           <% #TODO: Add # of likes here %>
           <% #TODO: Abstract out query from view! Include? Scope? %>
-          <p>Votes <%= answer.votes.count %></p>
+          <p>Vote value: <%= answer.votes.sum(:value) %></p>
 
           <div class="vote-buttons">
-            <%= button_to 'Up' %> <%= button_to 'Down' %>
+            <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
           </div>
 </div>
 <% end %>
