@@ -2,7 +2,7 @@
   <% @answers.each do |answer| %>
 <div class="questions-container">
     <%= answer.content %>
-    <p>By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
+    <p class="answer-user">By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
           <p>Posted on <%= answer.formatted_creation_date %> |
           Updated <%= answer.formatted_last_updated %></p>
           <% #TODO: Add # of likes here %>
@@ -12,12 +12,12 @@
           <div class="vote-buttons">
             <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
           </div>
-          <div>
+          <div class="answer-comments">
             <% answer.comments.each do |comment| %>
               <p><%= comment.content %></p>
             <% end %>
           </div>
-          <div>
+          <div class="new-answer-comment">
             <%= render partial: 'comments/new', layout: false, locals: { type: answer} %>
           </div>
 </div>
