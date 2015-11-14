@@ -6,7 +6,7 @@
   <div class="buttons">
     <p> <%= button_to 'Up' %></p>
     <p><%= button_to 'Down' %> </p>
-    <p> <%= button_to 'Give an Answer', new_tags_path(@question), method: :get %></p>
+    <p> <%= button_to 'Give an Answer', new_question_answer_path(@question), method: :get %></p>
   </div>
 
   <p>
@@ -15,6 +15,17 @@
     <% end %>
   </p>
 </div>
+
+<div>
+  <h3> Comments: </h3>
+<% @question.comments.each do |comment| %>
+<p> <%= comment.content %> </p>
+<% end %>
+</div>
+
+<%= render partial: 'comments/new', layout: false %>
+
+
 
 <%= render  "answers/show_answer", layout: false %>
 
