@@ -2,7 +2,7 @@
 <h2>Edit or Delete Your Answer</h2>
 
 <h2>Edit My Answer</h2>
-<%= form_for @answer, url: question_answer_path(@question.id, @answer.id) do |f| %>
+<%= form_for @answer, url: question_answer_path(@question.id, @answer.id), method: :put do |f| %>
 
   <p><%= f.label :content %></p>
   <p><%= f.text_area :content %></p>
