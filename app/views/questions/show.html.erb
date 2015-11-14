@@ -14,6 +14,10 @@
     <%= button_to 'Give an Answer', new_question_answer_path(@question), method: :get %>
   </div>
 
+  <% if current_user.id == @question.user_id %>
+    <%= link_to 'Edit Question', edit_question_path(@question) %> | <%= link_to 'Delete Question', question_path(@question), method: :delete %>
+  <% end %>
+
   <%= render partial: 'votes/new', layout: false, locals: {parent: @question} %>
 </div>
 

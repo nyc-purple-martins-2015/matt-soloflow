@@ -30,7 +30,26 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @tags = @question.tags
-    ## refactor to query with includes, unsure of querying relationships in the view
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question
+      @question.update_attributes(question_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
   end
 
 private
