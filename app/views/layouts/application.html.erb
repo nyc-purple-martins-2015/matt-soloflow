@@ -2,21 +2,24 @@
 <html>
 <head>
   <title>MattSoloflow</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato|Monofett">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
-<h1><%= link_to "Matt's SoloFlow", root_path %></h1>
+  <h1><%= link_to "Matt's SoloFlow", root_path %></h1>
 </header>
-  <% if logged_in? %>
+
   <navbar>
-    <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
-    <% else %>
-    <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
-  </navbar>
+  <% if logged_in? %>
+      <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
+  <% else %>
+      <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
   <% end %>
+  </navbar>
+
 <%= yield %>
 
 </body>

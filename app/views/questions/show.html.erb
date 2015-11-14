@@ -1,20 +1,31 @@
 <div>
-  <h2> <%= @question.title %> </h2>
-  <%= @question.content %>
-  <p>Votes <%= @question.votes.count %> | Answers: <%= @question.answers.length %> | Author: <%= @question.user.username %> </p>
+  <div class="question">
+    <h2> <%= @question.title %> </h2>
+    <%= @question.content %>
+    <p>Votes <%= @question.votes.count %> | Answers: <%= @question.answers.length %> | Author: <%= link_to @question.user.username, user_path(@question.user.id) %> </p>
 
-  <div class="buttons">
-    <p> <%= button_to 'Up' %></p>
-    <p><%= button_to 'Down' %> </p>
-    <p> <%= button_to 'Give an Answer', new_tags_path(@question), method: :get %></p>
+  <div class="vote-buttons">
+    <%= button_to 'Up' %> <%= button_to 'Down' %>
+  <div class="answer-button">
+    <%= button_to 'Give an Answer', new_question_answer_path(@question), method: :get %>
   </div>
+</div>
 
-  <p>
-    Tags: <% @tags.each do |tag| %>
+  <p class="tags"> Tags:
+    <% @tags.each do |tag| %>
       <%= button_to tag.category, tag_path(tag.id), method: :get %>
     <% end %>
   </p>
 </div>
+
+<div class="comments">
+  <p><h3> Comments: </h3></p>
+  <% @question.comments.each do |comment| %>
+    <p> <%= comment.content %> </p>
+  <% end %>
+</div>
+
+<%= render partial: 'comments/new', layout: false %>
 
 <%= render  "answers/show_answer", layout: false %>
 

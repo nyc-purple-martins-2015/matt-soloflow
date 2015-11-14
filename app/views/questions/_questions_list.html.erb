@@ -1,6 +1,6 @@
 <div class="questions-container">
       <% @questions.each do |question| %>
-        <div class="">
+        <div class="question">
           <h3><%= link_to question.title, question_path(question) %></h3>
           <p><%= question.content.first(50) %>...</p>
           <% #TODO: Change line 6 to scoping?, profile page %>

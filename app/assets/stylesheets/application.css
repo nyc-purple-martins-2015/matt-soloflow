@@ -16,16 +16,26 @@
 body {
   background-color: orange;
   font-family: Lato;
-}
+/*  font-family: Monofett;
+*/}
 
 header {
-  border-bottom: 5px solid black;
   background-color: gray;
+  width: 100%;
 }
 
 h1 { margin: 0;}
 
 header a { text-decoration: none; padding: 10px; }
+
+navbar {
+  color: white;
+  background-color: black;
+  float: right;
+  text-align: right;
+  width: 100%;
+  padding: .4em;
+}
 
 .page-header { margin-right: 30%; margin-left: 30%;}
 
@@ -39,30 +49,52 @@ header a { text-decoration: none; padding: 10px; }
 }
 
 .question {
+
   border: 5px solid black;
+  background-color: lightblue;
+  margin-top: 5em;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top, bottom: 5em;
+  width: auto;
+  text-align: center;
 }
 
 .questions-container {
-  background-color: lightblue;
-  border: 3px solid black;
-  text-align: center;
+  text-align: right;
   margin-right: 30%;
   margin-left: 30%;
   margin-bottom: .5em;
   padding: 15px;
+  text-decoration: none;
+  border: 3px solid black;
 }
 
-.buttons {
+/*.buttons {
+  margin: 0;
+}*/
+
+.button_to {
   display: inline-block;
-  width: 5%;
-}
-
-.button {
-  display: block;
   background-color: lightblue;
   border: 3px solid black;
   text-align: center;
-  padding: .5em;
-  margin-right: 43%;
-  margin-left: 43%;
+  padding: .3em;
+  /*margin: 0;*/
+}
+
+.inputbutton {
+  background-color: red;
+}
+
+.vote-buttons{
+  display: inline-block;
+}
+
+.answers{
+  border: 3px solid black;
+}
+
+.comments {
+  border: 3px solid black;
 }

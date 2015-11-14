@@ -19,5 +19,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to questions_path
   end
-
 end
