@@ -1,19 +1,20 @@
 <h2 class="page-header">Answers to "<%= @question.title %>":</h2>
   <% @answers.each do |answer| %>
 <div class="questions-container">
+    <p><%= link_to answer.user.username, user_path(answer.user.id) %> said:</p>
     <%= answer.content %>
-    <p>By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
-          <p>Posted on <%= answer.formatted_creation_date %> |
-          Updated <%= answer.formatted_last_updated %></p>
-          <% #TODO: Add # of likes here %>
-          <% #TODO: Abstract out query from view! Include? Scope? %>
-          <p>Vote value: <%= answer.votes.sum(:value) %></p>
+    <p>Posted on <%= answer.formatted_creation_date %> |
+    Updated <%= answer.formatted_last_updated %></p>
+    <% #TODO: Add # of likes here %>
+    <% #TODO: Abstract out query from view! Include? Scope? %>
+    <p>Vote value: <%= answer.votes.sum(:value) %></p>
 
-          <div class="vote-buttons">
+            <div class="vote-buttons">
             <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
           </div>
           <div>
             <% answer.comments.each do |comment| %>
+              <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
               <p><%= comment.content %></p>
             <% end %>
           </div>

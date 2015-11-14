@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    # @user_questions = User.includes(:questions).where(id: current_user.id)
+    # @user = current_user
+    @user = User.find(params[:id])
   end
 
 private
