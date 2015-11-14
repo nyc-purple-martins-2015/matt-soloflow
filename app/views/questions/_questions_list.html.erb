@@ -7,12 +7,8 @@
           <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
           <p>Posted on <%= question.formatted_creation_date %> |
           Updated <%= question.formatted_last_updated %></p>
-          <% #TODO: Add # of likes here %>
           <% #TODO: Abstract out query from view! Include? Scope? %>
-          <p>Votes <%= question.votes.count %> | Answers: <%= question.answers.length %></p>
-          <div class="vote-buttons">
-            <%= button_to 'Up' %> <%= button_to 'Down' %>
-          </div>
+          <p>Vote value: <%= question.votes.sum(:value) %> | Answers: <%= question.answers.length %></p>
         </div>
       <% end %>
 </div>
