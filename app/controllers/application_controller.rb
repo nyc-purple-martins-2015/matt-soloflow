@@ -11,5 +11,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def voted?(vote)
+    unless current_user.votes.exists?(user_id: vote.user_id, votable_id: vote.votable_id, votable_type: vote.votable_type, value: vote.value)
+    end
+  end
+
   protect_from_forgery with: :exception
 end

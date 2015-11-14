@@ -1,5 +1,10 @@
 <div>
   <div class="question">
+     <div class="error">
+    <% if flash[:notice] %>
+      alert(<%= flash[:notice] %>)
+    <% end %>
+  </div>
     <h2> <%= @question.title %> </h2>
     <%= @question.content %>
      <p>Vote value: <%= @question.votes.sum(:value) %></p>

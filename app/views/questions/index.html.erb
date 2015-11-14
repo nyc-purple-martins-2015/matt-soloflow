@@ -8,3 +8,9 @@
   <% end %>
 
   <p class="button"><%= link_to "All Tags", tags_path %></p>
+
+  <div class="error">
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+  </div>
