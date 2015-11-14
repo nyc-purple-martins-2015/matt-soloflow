@@ -14,7 +14,7 @@
 
   <navbar>
   <% if logged_in? %>
-      <%= current_user.username %> | <%= link_to 'Logout', logout_path %>
+      <%= link_to current_user.username, user_path(current_user) %> | <%= link_to 'Logout', logout_path %>
   <% else %>
       <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
   <% end %>
