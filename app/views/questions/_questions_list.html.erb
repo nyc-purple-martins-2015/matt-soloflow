@@ -1,6 +1,6 @@
 <div class="questions-container">
       <% @questions.each do |question| %>
-        <div class="">
+        <div>
           <h3><%= link_to question.title, question_path(question) %></h3>
           <p><%= question.content.first(50) %>...</p>
           <% #TODO: Change line 6 to scoping?, profile page %>
@@ -10,6 +10,9 @@
           <% #TODO: Add # of likes here %>
           <% #TODO: Abstract out query from view! Include? Scope? %>
           <p>Votes <%= question.votes.count %> | Answers: <%= question.answers.length %></p>
+          <div class="vote-buttons">
+            <%= button_to 'Up' %> <%= button_to 'Down' %>
+          </div>
         </div>
       <% end %>
 </div>

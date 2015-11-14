@@ -8,5 +8,9 @@
           <% #TODO: Add # of likes here %>
           <% #TODO: Abstract out query from view! Include? Scope? %>
           <p>Votes <%= answer.votes.count %></p>
-  <% end %>
+
+          <div class="vote-buttons">
+            <%= button_to 'Up' %> <%= button_to 'Down' %>
+          </div>
 </div>
+<% end %>

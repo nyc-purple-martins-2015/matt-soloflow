@@ -1,10 +1,10 @@
-<div>
+<div class="create-answer">
 <%= form_for @answer, url: question_answers_path(@question.id) do |f| %>
 
-  <p><%= f.label :content %></p>
+  <p><%= f.label :content, "Give an Answer" %></p>
   <p><%= f.text_area :content %></p>
 
-  <%= f.submit %>
+  <%= f.submit "Publish" %>
 <% end %>
 </div>
 
