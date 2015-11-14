@@ -1,0 +1,11 @@
+
+<%= form_for Comment.new do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_area :content %>
+  <%=f.hidden_field :commentable_type, :value => @question.class.name %>
+  <%=f.hidden_field :commentable_id, :value => @question.id %>
+  <%= f.submit %>
+<% end %>
+
+
+
