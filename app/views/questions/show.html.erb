@@ -2,8 +2,18 @@
   <h2> <%= @question.title %> </h2>
   <%= @question.content %>
   <p>Votes <%= @question.votes.count %> | Answers: <%= @question.answers.length %> | Author: <%= @question.user.username %> </p>
-  <p> <%= link_to 'Up' %> <%= link_to 'Down' %> </p>
-  <p> Tags: <% @tags.each do |tag| %> <%= link_to tag.category %>  <% end %></p>
+
+  <div class="buttons">
+    <p> <%= button_to 'Up' %></p>
+    <p><%= button_to 'Down' %> </p>
+    <p> <%= button_to 'Give an Answer', new_tags_path(@question), method: :get %></p>
+  </div>
+
+  <p>
+    Tags: <% @tags.each do |tag| %>
+      <%= button_to tag.category, tag_path(tag.id), method: :get %>
+    <% end %>
+  </p>
 </div>
 
 <%= render  "answers/show_answer", layout: false %>
