@@ -1,12 +1,12 @@
 <%= form_for @question do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :placeholder => "Enter Content" %>
 
   <%= f.label :content %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, :placeholder => "Enter Content" %>
 
   <%= f.label :tags %>
-  <%= f.text_area :tags %>
+  <%= f.text_area :tags, :value => nil, :placeholder => "Enter Tags" %>
 
   <%= f.submit %>
 <% end %>
