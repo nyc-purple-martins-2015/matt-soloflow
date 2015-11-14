@@ -1,3 +1,12 @@
-<div>
-  <%= @answer.content %>
+<h2 class="page-header">Answers to "<%= @question.title %>":</h2>
+  <% @answers.each do |answer| %>
+<div class="questions-container">
+    <%= answer.content %>
+    <p>By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
+          <p>Posted on <%= answer.formatted_creation_date %> |
+          Updated <%= answer.formatted_last_updated %></p>
+          <% #TODO: Add # of likes here %>
+          <% #TODO: Abstract out query from view! Include? Scope? %>
+          <p>Votes <%= answer.votes.count %></p>
+  <% end %>
 </div>
