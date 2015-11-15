@@ -1,6 +1,7 @@
 <h2 class="page-header">Answers to "<%= @question.title %>":</h2>
+
 <% @answers.each do |answer| %>
-<div class="questions-container">
+<div class="answers-container">
   <%= answer.content %>
   <p>By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
   <p>Posted on <%= answer.formatted_creation_date %> |

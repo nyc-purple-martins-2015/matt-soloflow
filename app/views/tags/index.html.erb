@@ -1,6 +1,6 @@
   <div class="page-header"><h2 > All Tags: </h2></div>
 
-    <div class="tags-container">
+  <div class="tags-container">
   <% @tags.each do |tag| %>
           <%= link_to tag.category, tag_path(tag.id), class: "tag"%>
   <% end %>

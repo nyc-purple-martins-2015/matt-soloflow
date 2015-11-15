@@ -1,10 +1,10 @@
 <div class="comments">
   <%= form_for Comment.new do |f| %>
-    <p><%= f.label :comment %></p>
+    <p><%= f.label :comment, value: "Say something:" %></p>
     <p><%= f.text_area :content %></p>
     <%=f.hidden_field :commentable_type, :value => type.class.name %>
     <%=f.hidden_field :commentable_id, :value => type.id %>
-    <p><%= f.submit %></p>
+    <p><%= f.submit "Comment", class: "button" %></p>
   <% end %>
 </div>
 

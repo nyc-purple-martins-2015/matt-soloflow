@@ -1,5 +1,4 @@
 <div>
-  <div class="question">
 
    <div class="error">
     <% if flash[:notice] %>
@@ -7,36 +6,44 @@
     <% end %>
   </div>
 
-    <h2> <%= @question.title %> </h2>
+  <h2 class="page-header"> Tags: </h2>
+  <div class="tags-container">
+      <% @tags.each do |tag| %>
+        <%= link_to tag.category, tag_path(tag.id), class: "tag" %>
+      <% end %>
+  </div>
+
+  <div class="question-display">
+    <h2 class="user-notice"> <%= @question.title %> </h2>
     <%= @question.content %>
      <p>Vote value: <%= @question.votes.sum(:value) %></p>
       <p> Answers: <%= @question.answers.length %> | Author: <%= link_to @question.user.username, user_path(@question.user.id) %> </p>
 
   <div class="answer-button">
-    <%= button_to 'Give an Answer', new_question_answer_path(@question), method: :get %>
+    <%= button_to "Help #{@question.user.username}", new_question_answer_path(@question), method: :get, class: "button" %>
   </div>
 
+  <div class="edit-buttons">
   <% if current_user.id == @question.user_id %>
-    <%= link_to 'Edit Question', edit_question_path(@question) %> | <%= link_to 'Delete Question', question_path(@question), method: :delete %>
+    <%= button_to 'Edit Question', edit_question_path(@question), class: "button"  %> | <%= button_to 'Delete Question', question_path(@question), method: :delete, class: "button"  %>
   <% end %>
+  </div>
 
   <%= render partial: 'votes/new', layout: false, locals: {parent: @question} %>
 </div>
 
-  <p class="tags"> Tags:
-    <% @tags.each do |tag| %>
-      <%= button_to tag.category, tag_path(tag.id), method: :get %>
-    <% end %>
-  </p>
 </div>
 
+<h2 class="page-header"> Comments: </h2>
 <div class="comments">
-  <h3> Comments: </h3>
   <% @question.comments.each do |comment| %>
+
     <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
     <p><%= comment.content %> </p>
     <p>Posted on: <%= comment.formatted_creation_date %></p>
+
     <p>Vote value: <%= comment.votes.sum(:value) %></p>
+
     <%= render partial: 'votes/new', layout: false, locals: {parent: comment} %>
   <% end %>
 </div>

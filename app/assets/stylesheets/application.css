@@ -44,21 +44,20 @@ navbar {
 
 .page-header {
   text-align: left;
-  margin-left: 15%;
+  margin-left: 10%;
   /*padding: 1em;*/
   margin-top: 1.5em;
   margin-bottom: 1em;
 }
 
 
-.question {
-
-  border: 5px solid black;
-  background-color: lightblue;
+.question-display {
+  border: 1px solid black;
+  background-color: #fffbea;
   margin-top: 5em;
-  margin-left: 30%;
-  margin-right: 30%;
-  padding-top: 5em;
+  margin-left: 10%;
+  margin-right: 10%;
+  /*padding-top: 5em;*/
   width: auto;
   text-align: center;
 }
@@ -110,19 +109,25 @@ form.button_to{
 
 .vote-buttons{
   display: inline-block;
+  padding: .5em;
 }
+
+.new_vote {
+  display: inline-block;
+  }
 
 .answers{
   border: 3px solid black;
 }
 
 .comments {
-  border: 3px solid black;
+  border: 1px solid black;
+  background-color: #fffbea;
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 1em;
   margin-bottom: 1em;
-  padding: .2em;
+  padding: 1.5em;
 }
 
 .create-answer{
@@ -192,14 +197,26 @@ form.button_to{
   border-radius: 5px;
 }
 
-.tag:hover {color: red;}
+.tag:hover { color: red; }
 
 
 .tags-container {
   display: inline-block;
   text-align: left;
   padding: 1em;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: .5em;
+}
+
+
+.answers-container {
+  background-color: #fffbea;
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: .5em;
+  padding: 15px;
+  text-decoration: none;
+  border: 1px solid black;
 }
