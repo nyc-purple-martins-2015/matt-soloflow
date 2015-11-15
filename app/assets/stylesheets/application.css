@@ -30,7 +30,7 @@ h1 { margin: 0;}
 header a {
   text-decoration: none;
   margin: 0;
-  color: #005555;
+  color: #006666;
 }
 
 navbar {
@@ -42,7 +42,13 @@ navbar {
   padding: .4em;
 }
 
-.page-header { margin-right: 30%; margin-left: 30%;}
+.page-header {
+  text-align: left;
+  margin-left: 10%;
+  /*padding: 1em;*/
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
 
 .tags-container {
   background-color: lightblue;
@@ -66,16 +72,17 @@ navbar {
 }
 
 .questions-container {
+  background-color: #fffbea;
   text-align: left;
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: .5em;
   padding: 15px;
   text-decoration: none;
-  border: 3px solid black;
+  border: 1px solid black;
 }
 
-form.button_to {
+/*form.button_to {
   margin: 0;
   display: inline-block;
   width: auto;
@@ -83,7 +90,7 @@ form.button_to {
   border: 3px solid black;
   text-align: center;
   padding: .3em;
-}
+}*/
 
 .button {
   border: 1px solid black;
@@ -95,11 +102,15 @@ form.button_to {
 }
 
 .buttons {
-  display: block;
-  margin-left: 30%;
-  margin-right: 30%;
-  border: 3px solid black;
-  padding: 15px;
+  display: inline-block;
+  margin-left: 40%;
+  margin-right: 40%;
+  /*border: 3px solid black;*/
+  padding: 1em;
+}
+
+form.button_to{
+  display: inline;
 }
 
 .vote-buttons{
