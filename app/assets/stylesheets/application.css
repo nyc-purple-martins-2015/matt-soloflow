@@ -14,19 +14,24 @@
  *= require_self
  */
 body {
-  background-color: orange;
+  background-color: white;
   font-family: Lato;
-/*  font-family: Monofett;
-*/}
+}
 
 header {
   background-color: gray;
   width: 100%;
+  font-family: Monofett;
+  font-size: 2em;
 }
 
 h1 { margin: 0;}
 
-header a { text-decoration: none; margin: 0; }
+header a {
+  text-decoration: none;
+  margin: 0;
+  color: #005555;
+}
 
 navbar {
   color: white;
