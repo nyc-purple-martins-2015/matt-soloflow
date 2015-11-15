@@ -50,14 +50,6 @@ navbar {
   margin-bottom: 1em;
 }
 
-.tags-container {
-  background-color: lightblue;
-  border: 3px solid black;
-  text-align: center;
-  margin-right: 40%;
-  margin-left: 40%;
-  margin-bottom: .5em;
-}
 
 .question {
 
@@ -192,4 +184,22 @@ form.button_to{
   list-style: none;
 }
 
+.tag {
+  text-decoration: none;
+  color: black;
+  border: 3px solid black;
+  padding: 1em;
+  border-radius: 5px;
+}
 
+.tag:hover {color: red;}
+
+
+.tags-container {
+  display: inline-block;
+  text-align: left;
+  padding: 1em;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: .5em;
+}
