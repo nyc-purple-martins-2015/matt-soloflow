@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
         end
         redirect_to question_path(@question)
       else
+        @errors = @question.errors.full_messages
         render :new
       end
   end

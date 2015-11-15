@@ -1,15 +1,26 @@
-<div class="questions-container">
+
+ <h3 class="user-notice">Welcome! Please sign up below.</h3>
+
+
+<div class="new-question-container">
+
+  <% if @user %>
+    <ul><% @errors.each do |error| %>
+      <li class="alert"><%= error %></li>
+    <% end %></ul>
+  <% end %>
 
   <%= form_for @question do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, :placeholder => "Enter Content" %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title, :placeholder => "How to implement Auth0?" %></p>
 
-    <%= f.label :content %>
-    <%= f.text_area :content, :placeholder => "Enter Content" %>
+    <p><%= f.label :content %></p>
+    <p><%= f.text_area :content, :placeholder => "Enter Content" %></p>
 
-    <%= f.label :tags %>
-    <%= f.text_area :tags, :value => nil, :placeholder => "Enter Tags" %>
+    <p><%= f.label :tags %></p>
+    <p>Enter tags separated by commas!</p>
+    <p><%= f.text_area :tags, :value => nil, :placeholder => "Dogs, kittens, Krampus" %></p>
 
-    <%= f.submit %>
+    <%= f.submit "Publish", class: "button" %>
   <% end %>
 </div>
