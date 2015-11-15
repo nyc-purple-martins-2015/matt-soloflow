@@ -4,7 +4,7 @@
 
 <div class="buttons">
   <% if logged_in? %>
-    <p class="button"><%= button_to "Ask", new_question_path %></p>
+    <%= button_to "Ask", new_question_path, class: "button" %>
   <% end %>
-  <p class="button"><%= button_to "All Tags", tags_path %></p>
+    <%= button_to "All Tags", tags_path, class: "button"  %>
 </div>
