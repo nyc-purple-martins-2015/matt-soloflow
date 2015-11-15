@@ -159,8 +159,23 @@ form.button_to{
   margin-top: 2em;
 }
 
+.user-data-container{
+  border: 3px solid black;
+  background-color: #fffbea;
+  padding: 1em;
+  margin-top: 2em;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.user-data-container a { color: black;}
+.user-data-container a:hover { color: red;}
+
 .alert {
   background-color: red;
   font-size: 2em;
   padding: .5em;
 }
+
+
