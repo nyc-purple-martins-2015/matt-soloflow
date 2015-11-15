@@ -4,7 +4,7 @@ def create
   @user = current_user
   @vote = Vote.new(vote_params)
   @vote.user_id = @user.id
-  if voted?(@vote) && @vote.save
+  if @vote.save
     if @vote.votable_type == "Answer"
       redirect_to question_path(@vote.votable.question_id)
     elsif @vote.votable_type == "Question"
@@ -16,11 +16,8 @@ def create
         redirect_to question_path(@vote.votable.commentable.id)
       end
     end
-  else
-    #TODO: add JS/Jquery to have a popup alert without refreshing page or refreshing.
-    flash[:notice] = "You already voted"
-    redirect_to questions_path
   end
+    #TODO: add JS/Jquery to have a popup alert without refreshing page or refreshing.
 end
 
 private
