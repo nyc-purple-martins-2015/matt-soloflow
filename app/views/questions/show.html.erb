@@ -23,7 +23,8 @@
     <%= button_to "Help #{@question.user.username}", new_question_answer_path(@question), method: :get, class: "button" %>
   </div>
 
-  <div class="edit-buttons">
+<!-- FIXME: Breaks if user isn't logged in
+ -->  <div class="edit-buttons">
   <% if current_user.id == @question.user_id %>
     <%= button_to 'Edit Question', edit_question_path(@question), class: "button"  %> | <%= button_to 'Delete Question', question_path(@question), method: :delete, class: "button"  %>
   <% end %>

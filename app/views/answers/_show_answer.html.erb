@@ -18,9 +18,18 @@
       <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
     </div>
 
-    <div>
+    <div class="comments">
       <% answer.comments.each do |comment| %>
-      <p><%= comment.content %></p>
+        <div class="response">
+          <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
+          <p><%= comment.content %> </p>
+          <p>Posted on: <%= comment.formatted_creation_date %></p>
+          <p>Vote value: <%= comment.votes.sum(:value) %></p>
+
+          <div class="vote-buttons">
+            <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
+          </div>
+        </div>
       <% end %>
     </div>
 
