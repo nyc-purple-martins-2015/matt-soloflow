@@ -44,7 +44,7 @@ navbar {
 
 .page-header {
   text-align: left;
-  margin-left: 10%;
+  margin-left: 15%;
   /*padding: 1em;*/
   margin-top: 1.5em;
   margin-bottom: 1em;
@@ -74,13 +74,16 @@ navbar {
 .questions-container {
   background-color: #fffbea;
   text-align: left;
-  margin-right: 10%;
-  margin-left: 10%;
+  margin-right: 15%;
+  margin-left: 15%;
   margin-bottom: .5em;
   padding: 15px;
   text-decoration: none;
   border: 1px solid black;
 }
+
+.questions-container a {color: black;}
+.questions-container a:hover {color: red;}
 
 /*form.button_to {
   margin: 0;
