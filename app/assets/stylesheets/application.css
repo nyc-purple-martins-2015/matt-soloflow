@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  background-color: gray;
+  background-color: white;
   width: 100%;
   font-family: Monofett;
   font-size: 2em;
@@ -30,7 +30,7 @@ h1 { margin: 0;}
 header a {
   text-decoration: none;
   margin: 0;
-  color: #006666;
+  color: #007777;
 }
 
 navbar {
@@ -121,8 +121,6 @@ form.button_to{
 }
 
 .comments {
-  border: 1px solid black;
-  background-color: #fffbea;
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 1em;
@@ -190,6 +188,7 @@ form.button_to{
 }
 
 .tag {
+  background-color: #ff7256;
   text-decoration: none;
   color: black;
   border: 3px solid black;
@@ -211,12 +210,19 @@ form.button_to{
 
 
 .answers-container {
-  background-color: #fffbea;
   text-align: left;
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: .5em;
   padding: 15px;
   text-decoration: none;
-  border: 1px solid black;
 }
+
+.response {  background-color: #fffbea;}
+
+/*.new-comment {
+  border: 1px solid black;
+  background-color: #fffbea;
+  padding: 1.5em;
+}*/
+

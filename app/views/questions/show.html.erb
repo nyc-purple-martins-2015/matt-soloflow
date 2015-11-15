@@ -35,20 +35,22 @@
 </div>
 
 <h2 class="page-header"> Comments: </h2>
+
 <div class="comments">
   <% @question.comments.each do |comment| %>
+    <div class="response">
+      <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
+      <p><%= comment.content %> </p>
+      <p>Posted on: <%= comment.formatted_creation_date %></p>
 
-    <p><%= link_to User.find(comment.user_id).username, user_path(comment.user_id) %> said:</p>
-    <p><%= comment.content %> </p>
-    <p>Posted on: <%= comment.formatted_creation_date %></p>
+      <p>Vote value: <%= comment.votes.sum(:value) %></p>
 
-    <p>Vote value: <%= comment.votes.sum(:value) %></p>
-
-    <%= render partial: 'votes/new', layout: false, locals: {parent: comment} %>
+      <%= render partial: 'votes/new', layout: false, locals: {parent: comment} %>
+    </div>
   <% end %>
+  <%= render partial: 'comments/new', layout: false, locals: { type: @question} %>
 </div>
 
-<%= render partial: 'comments/new', layout: false, locals: { type: @question} %>
 
 <%= render  "answers/show_answer", layout: false %>
 
