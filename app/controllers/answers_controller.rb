@@ -49,9 +49,4 @@ class AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:user_id, :content)
   end
-
-#TODO: Add back when questions are fixed.
- # def question_params
-    # params.require(:question).permit(:title, :content)
-  # end
 end
