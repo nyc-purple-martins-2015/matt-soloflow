@@ -1,24 +1,31 @@
 <h2 class="page-header">Answers to "<%= @question.title %>":</h2>
+
 <% @answers.each do |answer| %>
-<div class="questions-container">
-  <%= answer.content %>
-  <p>By <%= link_to answer.user.username, user_path(answer.user.id) %></p>
-  <p>Posted on <%= answer.formatted_creation_date %> |
-    Updated <%= answer.formatted_last_updated %></p>
-    <p>Vote value: <%= answer.votes.sum(:value) %></p>
+  <div class="answers-container">
+    <div class="response">
+      <p><%= link_to answer.user.username, user_path(answer.user.id) %> said:</p>
+      <%= answer.content %>
+      <p>Posted on <%= answer.formatted_creation_date %> |
+        Updated <%= answer.formatted_last_updated %></p>
+      <p>Vote value: <%= answer.votes.sum(:value) %></p>
+    </div>
+
     <% if current_user.id == answer.user_id %>
-    <p> <%= link_to 'Edit Answer', edit_question_answer_path(@question, answer) %> | <%= link_to 'Delete Answer', question_answer_path(@question, answer), method: :delete %></p>
+      <p><%= button_to 'Edit Answer', edit_question_answer_path(@question, answer), class: "button" %> | <%= button_to 'Delete Answer', question_answer_path(@question, answer), method: :delete, class: "button" %></p>
     <% end %>
+
     <div class="vote-buttons">
       <%= render partial: 'votes/new', layout: false, locals: {parent: answer} %>
     </div>
+
     <div>
       <% answer.comments.each do |comment| %>
       <p><%= comment.content %></p>
       <% end %>
     </div>
+
     <div>
       <%= render partial: 'comments/new', layout: false, locals: { type: answer} %>
     </div>
   </div>
-  <% end %>
+<% end %>

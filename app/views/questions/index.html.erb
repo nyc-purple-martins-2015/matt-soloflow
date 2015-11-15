@@ -1,17 +1,17 @@
-<h1 class="page-header">All Questions:</h1>
+<h1 class="page-header">Recent Questions:</h1>
 
+<div class="error">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>
 
 <%= render  "questions_list", layout: false %>
 
 <div class="buttons">
   <% if logged_in? %>
-    <p class="button"><%= button_to 'Ask', new_question_path, method: :get %></p>
+    <%= button_to 'Ask', new_question_path, method: :get, class: "button"  %>
   <% end %>
 
-  <p class="button"><%= button_to "All Tags", tags_path, method: :get %></p>
+  <%= button_to "All Tags", tags_path, method: :get, class: "button" %>
 </div>
-  <div class="error">
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-  </div>

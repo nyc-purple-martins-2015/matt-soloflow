@@ -1,19 +1,22 @@
-<div class="container">
+ <h3 class="user-notice">Welcome! Please sign up below.</h3>
+
   <% if @user %>
     <ul><% @user.errors.full_messages.each do |error| %>
       <li><%= error %></li>
     <% end %></ul>
   <% end %>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br/>
+<div class="login-container">
+  <%= form_for @user do |f| %>
+    <p><%= f.label :username %></p>
+    <p><%= f.text_field :username, placeholder: "example123" %></p>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br/>
+    <p><%= f.label :email %></p>
+    <p><%= f.text_field :email, placeholder: "example123@example.com"%></p>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br/>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password %></p>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit "Register Me", class: "button" %>
+  <% end %>
+</div>

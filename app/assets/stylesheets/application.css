@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  background-color: gray;
+  background-color: white;
   width: 100%;
   font-family: Monofett;
   font-size: 2em;
@@ -30,7 +30,7 @@ h1 { margin: 0;}
 header a {
   text-decoration: none;
   margin: 0;
-  color: #005555;
+  color: #007777;
 }
 
 navbar {
@@ -42,41 +42,41 @@ navbar {
   padding: .4em;
 }
 
-.page-header { margin-right: 30%; margin-left: 30%;}
-
-.tags-container {
-  background-color: lightblue;
-  border: 3px solid black;
-  text-align: center;
-  margin-right: 40%;
-  margin-left: 40%;
-  margin-bottom: .5em;
+.page-header {
+  text-align: left;
+  margin-left: 10%;
+  /*padding: 1em;*/
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
-.question {
 
-  border: 5px solid black;
-  background-color: lightblue;
+.question-display {
+  border: 1px solid black;
+  background-color: #fffbea;
   margin-top: 5em;
-  margin-left: 30%;
-  margin-right: 30%;
-  padding-top: 5em;
+  margin-left: 10%;
+  margin-right: 10%;
+  /*padding-top: 5em;*/
   width: auto;
   text-align: center;
 }
 
 .questions-container {
+  background-color: #fffbea;
   text-align: left;
-  margin-right: 10%;
-  margin-left: 10%;
+  margin-right: 15%;
+  margin-left: 15%;
   margin-bottom: .5em;
   padding: 15px;
   text-decoration: none;
-  border: 3px solid black;
+  border: 1px solid black;
 }
 
+.questions-container a {color: black;}
+.questions-container a:hover {color: red;}
 
-form.button_to {
+/*form.button_to {
   margin: 0;
   display: inline-block;
   width: auto;
@@ -84,31 +84,48 @@ form.button_to {
   border: 3px solid black;
   text-align: center;
   padding: .3em;
+}*/
+
+.button {
+  border: 1px solid black;
+  background-color: orange;
+  border-radius: 8px;
+  padding: .5em;
+  font-size: 1em;
+  font-weight: bolder;
 }
 
 .buttons {
-  display: block;
-  margin-left: 30%;
-  margin-right: 30%;
-  border: 3px solid black;
-  padding: 15px;
+  display: inline-block;
+  margin-left: 40%;
+  margin-right: 40%;
+  /*border: 3px solid black;*/
+  padding: 1em;
+}
+
+form.button_to{
+  display: inline;
 }
 
 .vote-buttons{
   display: inline-block;
+  padding: .5em;
 }
+
+.new_vote {
+  display: inline-block;
+  }
 
 .answers{
   border: 3px solid black;
 }
 
 .comments {
-  border: 3px solid black;
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 1em;
   margin-bottom: 1em;
-  padding: .2em;
+  padding: 1.5em;
 }
 
 .create-answer{
@@ -124,3 +141,88 @@ form.button_to {
   width: 100%;
   height: 20em;
 }
+
+.login-container {
+  border: 3px solid black;
+  padding: 1em;
+  margin-top: 2em;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.user-notice {
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+.user-data-container{
+  border: 3px solid black;
+  background-color: #fffbea;
+  padding: 1em;
+  margin-top: 2em;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.user-data-container a { color: black;}
+.user-data-container a:hover { color: red;}
+
+.new-question-container{
+  border: 3px solid black;
+  background-color: #fffbea;
+  padding: 1em;
+  margin-top: 2em;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.alert {
+  background-color: red;
+  font-size: 2em;
+  padding: .5em;
+  list-style: none;
+}
+
+.tag {
+  background-color: #ff7256;
+  text-decoration: none;
+  color: black;
+  border: 3px solid black;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.tag:hover { color: red; }
+
+
+.tags-container {
+  display: inline-block;
+  text-align: left;
+  padding: 1em;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: .5em;
+}
+
+
+.answers-container {
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: .5em;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.response {  background-color: #fffbea;}
+
+/*.new-comment {
+  border: 1px solid black;
+  background-color: #fffbea;
+  padding: 1.5em;
+}*/
+
