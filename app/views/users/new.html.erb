@@ -1,3 +1,5 @@
+ <h3 class="user-notice">Welcome! Please sign up below.</h3>
+
   <% if @user %>
     <ul><% @user.errors.full_messages.each do |error| %>
       <li><%= error %></li>
@@ -15,6 +17,6 @@
     <p><%= f.label :password %></p>
     <p><%= f.password_field :password %></p>
 
-    <%= f.submit "Sign Me Up!", class: "button" %>
+    <%= f.submit "Register Me", class: "button" %>
   <% end %>
 </div>
