@@ -3,12 +3,13 @@
 
 <%= render  "questions_list", layout: false %>
 
+<div class="buttons">
   <% if logged_in? %>
-    <p class="button"><%= link_to 'Ask', new_question_path %></p>
+    <p class="button"><%= button_to 'Ask', new_question_path, method: :get %></p>
   <% end %>
 
-  <p class="button"><%= link_to "All Tags", tags_path %></p>
-
+  <p class="button"><%= button_to "All Tags", tags_path, method: :get %></p>
+</div>
   <div class="error">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
