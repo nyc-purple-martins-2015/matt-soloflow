@@ -45,7 +45,6 @@ navbar {
 .page-header {
   text-align: left;
   margin-left: 10%;
-  /*padding: 1em;*/
   margin-top: 1.5em;
   margin-bottom: 1em;
 }
@@ -57,7 +56,6 @@ navbar {
   margin-top: 5em;
   margin-left: 10%;
   margin-right: 10%;
-  /*padding-top: 5em;*/
   width: auto;
   text-align: center;
 }
@@ -208,7 +206,6 @@ form.button_to{
   margin-bottom: .5em;
 }
 
-
 .answers-container {
   text-align: left;
   margin-right: 10%;
@@ -219,10 +216,4 @@ form.button_to{
 }
 
 .response {  background-color: #fffbea;}
-
-/*.new-comment {
-  border: 1px solid black;
-  background-color: #fffbea;
-  padding: 1.5em;
-}*/
 
