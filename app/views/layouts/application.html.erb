@@ -14,9 +14,9 @@
 
   <navbar>
   <% if logged_in? %>
-      <%= link_to current_user.username, user_path(current_user) %> | <%= link_to 'Logout', logout_path %>
+      <%= link_to current_user.username, user_path(current_user), class: "nav-btn" %> | <%= link_to 'Logout', logout_path, class: "nav-btn" %>
   <% else %>
-      <%= link_to 'Sign up', register_path %> | <%= link_to 'Login', login_path %>
+      <%= link_to 'Sign up', register_path, class: "nav-btn" %> | <%= link_to 'Login', login_path, class: "nav-btn" %>
   <% end %>
   </navbar>
 

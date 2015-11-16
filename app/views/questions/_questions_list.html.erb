@@ -1,5 +1,5 @@
 <div class="questions-container">
-      <% @questions.each do |question| %>
+      <% @questions.newest.each do |question| %>
         <div>
           <h3><%= link_to question.title, question_path(question) %></h3>
           <p><%= question.content.first(50) %>...</p>
