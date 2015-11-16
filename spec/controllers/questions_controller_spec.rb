@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController do
-
+let(:invalid_question) {FactoryGirl.create(:invalid_question)}
 let(:question) {FactoryGirl.create(:question)}
 let(:new_user) {FactoryGirl.create(:user)}
 let(:tags) {FactoryGril.create(:tag)}
@@ -44,7 +44,19 @@ let(:tags) {FactoryGril.create(:tag)}
       }.to change(Question, :count).by(1)
     end
 
+    it 'redirects to the question after success' do
+      question_hash = attributes_for(:question)
+      question_hash[:tags] = "one,two,three"
+      post :create, question: question_hash
+      expect(response).to redirect_to(question_path(2))
+    end
 
+    it 'renders new form when save is attributes are invalid' do
+      question_hash = {title: nil, content: nil}
+      question_hash[:tags] = "one,two,three"
+      post :create, question: question_hash
+      expect(response).to render_template(:new)
+    end
 
   end
 
