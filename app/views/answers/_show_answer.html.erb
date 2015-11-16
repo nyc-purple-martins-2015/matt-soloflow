@@ -11,7 +11,7 @@
     </div>
 
     <% if current_user.id == answer.user_id %>
-      <p><%= button_to 'Edit Answer', edit_question_answer_path(@question, answer), class: "button" %> | <%= button_to 'Delete Answer', question_answer_path(@question, answer), method: :delete, class: "button" %></p>
+      <p><%= button_to 'Edit Answer', edit_question_answer_path(@question, answer), method: :get, class: "button" %> | <%= button_to 'Delete Answer', question_answer_path(@question, answer), method: :delete, class: "button" %></p>
     <% end %>
 
     <div class="vote-buttons">
