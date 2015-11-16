@@ -44,6 +44,13 @@ class AnswersController < ApplicationController
     redirect_to question_path(@answer.question)
   end
 
+  def best
+    @answer = Answer.find(params[:answer])
+    @answer.mark_as_best
+    @answer.save!
+    redirect_to question_path(@answer.question_id)
+  end
+
   private
 
   def answer_params
