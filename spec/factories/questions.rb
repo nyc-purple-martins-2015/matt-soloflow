@@ -8,3 +8,10 @@ FactoryGirl.define do
     f.content { Faker::Lorem.paragraph }
   end
 end
+
+FactoryGirl.define do
+  factory :invalid_question do |f|
+    f.title nil
+    f.content "this is wrong"
+  end
+end
