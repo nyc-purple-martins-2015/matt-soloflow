@@ -160,7 +160,7 @@ form.button_to{
 }
 
 .user-data-container a { color: black;}
-.user-data-container a:hover { color: red;}
+.user-data-container a:hover { color: yellow;}
 
 .new-question-container{
   border: 3px solid black;
@@ -188,7 +188,7 @@ form.button_to{
   border-radius: 5px;
 }
 
-.tag:hover { color: red; }
+.tag:hover { color: yellow; }
 
 
 .tags-container {

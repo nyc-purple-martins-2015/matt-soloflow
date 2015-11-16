@@ -1,12 +1,15 @@
 <div class="questions-container">
-      <% @questions.newest.each do |question| %>
-        <div>
-          <h3><%= link_to question.title, question_path(question) %></h3>
-          <p><%= question.content.first(50) %>...</p>
-          <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
-          <p>Posted on <%= question.formatted_creation_date %> |
-          Updated <%= question.formatted_last_updated %></p>
-          <p>Vote value: <%= question.votes.sum(:value) %> | Answers: <%= question.answers.length %></p>
-        </div>
+      <% if @questions %>
+        <% @questions.newest.each do |question| %>
+          <div>
+            <h3><%= link_to question.title, question_path(question) %></h3>
+            <p><%= question.content.first(50) %>...</p>
+            <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
+            <p>Posted on <%= question.formatted_creation_date %> |
+            Updated <%= question.formatted_last_updated %></p>
+            <p>Vote value: <%= question.votes.sum(:value) %> | Answers: <%= question.answers.length %></p>
+          </div>
+        <% end %>
+      <h2 class="user-notice"><%= "Nothing found." %></h2>
       <% end %>
 </div>
