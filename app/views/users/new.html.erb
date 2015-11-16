@@ -1,12 +1,13 @@
  <h3 class="user-notice">Welcome! Please sign up below.</h3>
 
+
+<div class="login-container">
   <% if @user %>
-    <ul><% @user.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
+    <% @user.errors.full_messages.each do |error| %>
+      <h2 class="alert"><%= error %></h2>
     <% end %></ul>
   <% end %>
 
-<div class="login-container">
   <%= form_for @user do |f| %>
     <p><%= f.label :username %></p>
     <p><%= f.text_field :username, placeholder: "example123" %></p>

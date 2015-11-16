@@ -22,7 +22,7 @@ header {
   background-color: white;
   width: 100%;
   font-family: Monofett;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 h1 { margin: 0;}
@@ -42,7 +42,7 @@ navbar {
   padding: .4em;
 }
 
-.nav-btn {
+.nav-link {
   text-decoration: none;
   color: white;
 }
@@ -54,11 +54,10 @@ navbar {
   margin-bottom: 1em;
 }
 
-
 .question-display {
   border: 1px solid black;
   background-color: #fffbea;
-  margin-top: 5em;
+  margin-top: 3.5em;
   margin-left: 10%;
   margin-right: 10%;
   width: auto;
@@ -117,8 +116,8 @@ form.button_to{
   margin-left: 10%;
   margin-top: 1em;
   margin-bottom: 1em;
-  padding: 1.5em;
-}
+/*  padding: 1.5em;
+*/}
 
 .create-answer{
   margin-top: 5em;
@@ -136,6 +135,7 @@ form.button_to{
 
 .login-container {
   border: 3px solid black;
+  background-color: #fffbea;
   padding: 1em;
   margin-top: 2em;
   margin-left: 30%;
@@ -146,7 +146,7 @@ form.button_to{
 .user-notice {
   text-align: center;
   padding: 1em;
-  margin-top: 2em;
+  margin-top: 1.2em;
 }
 
 .user-data-container{
@@ -169,6 +169,7 @@ form.button_to{
   margin-top: 2em;
   margin-left: 30%;
   margin-right: 30%;
+  margin-bottom: 3em;
   text-align: center;
 }
 
@@ -181,6 +182,9 @@ form.button_to{
 
 .tag {
   background-color: #ff7256;
+  position: relative;
+  display: inline-block;
+  margin-bottom: .2em;
   text-decoration: none;
   color: black;
   border: 3px solid black;
@@ -209,5 +213,15 @@ form.button_to{
   text-decoration: none;
 }
 
-.response {  background-color: #fffbea;}
+.response {  background-color: #fffbea; padding: .7em;}
+.response a { color: black; }
+.response a:hover { color: red; }
 
+.edit-buttons { padding: .5em; }
+
+#new_comment {
+  border: 1px solid black;
+  margin-right: 10%;
+  margin-left: 10%;
+ padding: .7em;
+}

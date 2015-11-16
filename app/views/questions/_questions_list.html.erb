@@ -1,5 +1,5 @@
 <div class="questions-container">
-      <% if @questions %>
+      <% if @questions.any? %>
         <% @questions.newest.each do |question| %>
           <div>
             <h3><%= link_to question.title, question_path(question) %></h3>
@@ -10,6 +10,7 @@
             <p>Vote value: <%= question.votes.sum(:value) %> | Answers: <%= question.answers.length %></p>
           </div>
         <% end %>
-      <h2 class="user-notice"><%= "Nothing found." %></h2>
+      <% else %>
+        <h2 class="user-notice">Nothing to see here.</h2>
       <% end %>
 </div>
