@@ -1,14 +1,12 @@
 <div class="edit-answer">
-<h2>Edit or Delete Your Answer</h2>
+  <h2>Edit or Delete Your Answer</h2>
 
-<h2>Edit My Answer</h2>
-<%= form_for @answer, url: question_answer_path(@question.id, @answer.id), method: :put do |f| %>
-
-  <p><%= f.label :content %></p>
-  <p><%= f.text_area :content %></p>
-
-  <%= f.submit %>
-<% end %>
+  <h2>Edit My Answer</h2>
+    <%= form_for @answer, url: question_answer_path(@question.id, @answer.id), method: :put do |f| %>
+    <p><%= f.label :content %></p>
+    <p><%= f.text_area :content %></p>
+    <%= f.submit %>
+    <% end %>
 </div>
 
 <p><%= link_to "Delete my Answer", question_answer_path(@question.id, @answer.id), method: :delete %></p>

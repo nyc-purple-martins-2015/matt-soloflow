@@ -1,18 +1,20 @@
 <% if current_user.id != parent.user_id && %>
-<% !(parent.votes.any? {|vote| vote.user_id == current_user.id}) %>
- <div class="vote-buttons">
-  <%= form_for Vote.new do |f| %>
-    <%= f.hidden_field :value, :value => 1 %>
-    <%= f.hidden_field :votable_type, :value => parent.class.name %>
-    <%= f.hidden_field :votable_id, :value => parent.id  %>
-    <%= f.submit "Up Vote", class: "button"  %>
+  <% !(parent.votes.any? {|vote| vote.user_id == current_user.id}) %>
+
+  <div class="vote-buttons">
+    <%= form_for Vote.new do |f| %>
+      <%= f.hidden_field :value, :value => 1 %>
+      <%= f.hidden_field :votable_type, :value => parent.class.name %>
+      <%= f.hidden_field :votable_id, :value => parent.id  %>
+
+      <%= f.submit "Up Vote", class: "button"  %>
   <% end %>
 
-  <%= form_for Vote.new do |f| %>
+    <%= form_for Vote.new do |f| %>
     <%= f.hidden_field :value, :value => -1 %>
     <%= f.hidden_field :votable_type, :value => parent.class.name %>
     <%= f.hidden_field :votable_id, :value => parent.id  %>
+
     <%= f.submit "Down Vote", class: "button"  %>
   <% end %>
 <% end %>
-</div>
