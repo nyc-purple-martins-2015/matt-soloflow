@@ -4,6 +4,7 @@ def create
   @user = current_user
   @vote = Vote.new(vote_params)
   @vote.user_id = @user.id
+  # Ragnarők II:
   if @vote.save
     if @vote.votable_type == "Answer"
       redirect_to question_path(@vote.votable.question_id)

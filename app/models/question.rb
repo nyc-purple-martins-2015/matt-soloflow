@@ -17,4 +17,13 @@ class Question < ActiveRecord::Base
   def formatted_last_updated
     self.updated_at.strftime("%m-%d-%y")
   end
+
+  def associate_to_tags!(tag_list)
+    tag_list.each do |tag_name|
+      new_tag = Tag.find_or_create_by(category: tag_name.strip)
+      unless self.tags.include?(new_tag)
+        self.tags << new_tag
+      end
+    end
+  end
 end

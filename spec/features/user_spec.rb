@@ -1,20 +1,20 @@
 require 'rails_helper'
 
+# Remember when we had a really fun discussion about hidden eager loading
+# expectations?  That was a great day.
 feature 'Unlogged user visits the homepage' do
-
-  before(:each) do
-    @question = FactoryGirl.create(:question)
-  end
-
   describe "user sees the index of questions" do
+
+    let!(:question) { FactoryGirl.create(:question, title: "Test question 1") }
+
     it "should display all questions" do
       visit root_path
-      expect(page).to have_content(@question.title)
+      expect(page).to have_content(question.title)
     end
 
     it "should display the author of the question" do
       visit root_path
-      expect(page).to have_content(@question.user.username)
+      expect(page).to have_content(question.user.username)
     end
 
     it "should not display an ask button to not logged in user" do
@@ -28,16 +28,3 @@ feature 'Unlogged user visits the homepage' do
     end
   end
 end
-
-# feature 'User signs up' do
-
-#   it "should allow a user to sign up and redirect to root" do
-#     visit root_path
-#     click_link "Sign Up"
-#     fill_in "Username", with: "user"
-#     fill_in "Email", with: "user@example.com"
-#     fill_in "Password", with: "password"
-#     click_button "Create User"
-#     current_path.to eq(root_path)
-#   end
-# end

@@ -1,15 +1,17 @@
 class AnswersController < ApplicationController
 
   def new
-    @answer = Answer.new
     @question = Question.find(params[:question_id])
   end
 
   def create
-    @user = User.find(session[:user_id])
     @question = Question.find(params[:question_id])
     #TODO: Refactor line 12 to not be hardcoded.
-    @answer = @question.answers.new(content: answer_params[:content], user_id: @user.id)
+    # Be aware the collection.new method is NOT fully supported in older
+    # rails...so if you go out into the real world this could break on Rails
+    # 3.x systems (the majority of Rails systems in production today). #build
+    # is history-compatible
+    @answer = @question.answers.new(content: answer_params[:content], user: current_user)
     if @answer.save
       redirect_to question_path(@question)
     else
@@ -46,8 +48,8 @@ class AnswersController < ApplicationController
 
   def best
     @answer = Answer.find(params[:answer])
-    @answer.mark_as_best
-    @answer.save!
+    @answer.mark_as_best # I might suggest that this have a ! at the end because you're changing something?
+    @answer.save! # I would argue that this should go into mark_as_best hence the bang-appellation of that method name
     redirect_to question_path(@answer.question_id)
   end
 

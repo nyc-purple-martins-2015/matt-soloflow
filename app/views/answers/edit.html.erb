@@ -2,6 +2,7 @@
 <h2>Edit or Delete Your Answer</h2>
 
 <h2>Edit My Answer</h2>
+<%# if you find yourself providing a URL param to form_for, you probably should prefer form_tag %>
 <%= form_for @answer, url: question_answer_path(@question.id, @answer.id), method: :put do |f| %>
 
   <p><%= f.label :content %></p>

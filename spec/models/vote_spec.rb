@@ -1,3 +1,15 @@
+=begin editorializing
+
+Steven does not really believe in testing ActiveReocrd association logic.  Why?
+Well, you're testing the logic that's provided to you by the library you're
+using.  What's the point of that?  You're duplicating tests tha tthe authors of
+this framework have already written. It's not a bad thing and opinions differ,
+but it's not a test that's buying you a lot of insight.
+
+=end
+
+
+
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do

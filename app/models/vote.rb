@@ -8,11 +8,8 @@ class Vote < ActiveRecord::Base
   validates :value, presence: true
  # validate: only_vote_once
 
+  # by convention boolean methods are ended by ? in Ruby.
   def only_vote_once(vote)
-    if current_user.votes.exists?(user_id: vote.user_id, votable_id: vote.votable_id, votable_type: vote.votable_type)
-      false
-    else
-      true
-    end
+    current_user.votes.exists?(user_id: vote.user_id, votable_id: vote.votable_id, votable_type: vote.votable_type)
   end
 end

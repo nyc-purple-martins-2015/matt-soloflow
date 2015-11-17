@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
   it "has a valid factory" do
-    FactoryGirl.create(:answer).should be_valid
+    # et al.
+    #FactoryGirl.create(:answer).should be_valid
+    expect(FactoryGirl.create(:answer)).to be_valid
   end
   it "is invalid without content" do
     FactoryGirl.build(:answer, content: nil).should_not be_valid

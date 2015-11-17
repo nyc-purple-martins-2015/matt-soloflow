@@ -14,6 +14,7 @@
       <p><%= button_to 'Edit Answer', edit_question_answer_path(@question, answer), method: :get, class: "button" %> | <%= button_to 'Delete Answer', question_answer_path(@question, answer), method: :delete, class: "button" %></p>
     <% end %>
 
+    <%# this is too much logic for a view....this would be fine for a helper: question_is_owned_by_current_user? && there is a built in active record helper for dectecting whether best exists ... i think...."
     <% if current_user.id == @question.user_id  && !(@question.answers.any? {|ans| ans.best}) %>
       <%= button_to 'Mark Best', best_path, method: :get, params: {answer: answer}, class: "button" %>
     <% end %>

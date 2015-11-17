@@ -3,6 +3,7 @@
         <% @questions.newest.each do |question| %>
           <div>
             <h3><%= link_to question.title, question_path(question) %></h3>
+            <p><%# question.display_title %>...</p>
             <p><%= question.content.first(50) %>...</p>
             <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
             <p>Posted on <%= question.formatted_creation_date %> |
