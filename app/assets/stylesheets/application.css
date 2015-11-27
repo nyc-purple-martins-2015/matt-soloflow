@@ -18,6 +18,8 @@ body {
   font-family: Lato;
 }
 
+a { text-decoration: none; font-weight: bolder; }
+
 header {
   background-color: white;
   width: 100%;
@@ -40,6 +42,7 @@ navbar {
   text-align: right;
   width: 100%;
   padding: .4em;
+  margin-bottom: 1em;
 }
 
 .nav-link {
@@ -106,6 +109,26 @@ form.button_to {
 .new_vote {
   display: inline-block;
   }
+
+.data-display-container {
+  display: inline-block;
+  border: 1px solid black;
+  float: left;
+}
+
+.vote {
+  border: 1px solid black;
+  padding: 1em;
+  height: 2em;
+  width: 2em;
+}
+.answer {
+  border: 1px solid black;
+  padding: 1em;
+  height: 2em;
+  width: 2em;
+
+}
 
 .answers{
   border: 3px solid black;
@@ -187,9 +210,9 @@ form.button_to {
   margin-bottom: .2em;
   text-decoration: none;
   color: black;
-  border: 3px solid black;
+  /*border: 3px solid black;*/
   padding: 1em;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
 }
 
 .tag:hover { color: yellow; }
@@ -224,4 +247,64 @@ form.button_to {
   margin-right: 10%;
   margin-left: 10%;
   padding: .7em;
+}
+
+p.vote {
+  background-color: gray;
+  display: inline-block;
+  text-align: center;
+  font-size: .7em;
+  width: auto;
+}
+
+p.answer {
+  background-color: gray;
+  display: inline-block;
+  text-align: center;
+  font-size: .7em;
+  width: auto;
+
+}
+.dates {
+  float: right;
+  text-align: right;
+  font-size: .7em;
+  color: gray;
+  border: 1px solid black  ;
+  display: inline-block;
+
+}
+
+.question-summary {
+  border-bottom: 1px solid gray;
+  width: 50em;
+  height: .1em;
+}
+
+.summary { display: inline-block;}
+
+.index-text {
+  text-align: right;
+    border: 1px solid black  ;
+
+}
+
+.layout-links {
+  text-align: right;
+}
+
+.nav-link {
+  margin-top: 3em;
+  color: black;
+  background-color: lightgray;
+  padding: 8px;
+}
+
+.nav-link:hover {background-color: orange;}
+
+.question-link {display: inline-block; float: right;}
+
+.profile-link {
+  text-decoration: none;
+  color: white;
 }
