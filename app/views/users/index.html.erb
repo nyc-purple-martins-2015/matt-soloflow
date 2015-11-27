@@ -1,0 +1,6 @@
+<div class="page-header"><h2>Users</h2></div>
+<div>
+  <% @users.each do |user| %>
+    <%= link_to user.username, root_path, class: "nav-link" %>
+  <% end %>
+</div>

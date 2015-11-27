@@ -253,7 +253,7 @@ p.vote {
   background-color: gray;
   display: inline-block;
   text-align: center;
-  font-size: .7em;
+  font-size: 1em;
   width: auto;
 }
 
@@ -261,7 +261,7 @@ p.answer {
   background-color: gray;
   display: inline-block;
   text-align: center;
-  font-size: .7em;
+  font-size: 1em;
   width: auto;
 
 }
@@ -272,21 +272,20 @@ p.answer {
   color: gray;
   border: 1px solid black  ;
   display: inline-block;
-
 }
 
 .question-summary {
   border-bottom: 1px solid gray;
-  width: 50em;
-  height: .1em;
+  width: 100em;
+  height: -1em;
 }
 
-.summary { display: inline-block;}
+.summary { display: inline-block; padding: 1em; clear: left;}
 
 .index-text {
   text-align: right;
-    border: 1px solid black  ;
-
+  border: 1px solid black;
+  display: inline-block;
 }
 
 .layout-links {
@@ -308,3 +307,5 @@ p.answer {
   text-decoration: none;
   color: white;
 }
+
+.container {display: inline-block;}

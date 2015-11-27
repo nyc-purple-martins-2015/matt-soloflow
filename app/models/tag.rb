@@ -7,4 +7,12 @@ class Tag < ActiveRecord::Base
   def recent_questions
     self.questions.order(created_at: :desc)
   end
+
+  def self.most_popular
+
+  end
+
+  def trending
+
+  end
 end
