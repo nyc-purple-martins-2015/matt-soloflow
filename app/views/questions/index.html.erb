@@ -1,4 +1,4 @@
-<h1 class="page-header">Recent Questions:</h1>
+<h1 class="page-header">Most Recent Questions</h1>
 
 <div class="error">
   <% if flash[:notice] %>
@@ -7,11 +7,3 @@
 </div>
 
 <%= render  "questions_list", layout: false %>
-
-<div class="buttons">
-  <% if logged_in? %>
-    <%= button_to 'Ask', new_question_path, method: :get, class: "button"  %>
-  <% end %>
-
-  <%= button_to "All Tags", tags_path, method: :get, class: "button" %>
-</div>

@@ -6,7 +6,6 @@ class Answer < ActiveRecord::Base
 
   validates :content, :user_id, :question_id, presence: true
 
-
   def mark_as_best
     self.best = true
   end

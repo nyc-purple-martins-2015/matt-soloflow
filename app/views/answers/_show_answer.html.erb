@@ -1,5 +1,5 @@
+<% if @answers.any? %>
 <h2 class="page-header">Answers to "<%= @question.title %>":</h2>
-
 <% @answers.each do |answer| %>
   <div class="answers-container">
     <div class="response">
@@ -9,6 +9,7 @@
         Updated <%= answer.formatted_last_updated %></p>
       <p>Vote value: <%= answer.votes.sum(:value) %></p>
     </div>
+<% end %>
 
     <% if current_user.id == answer.user_id %>
       <p><%= button_to 'Edit Answer', edit_question_answer_path(@question, answer), method: :get, class: "button" %> | <%= button_to 'Delete Answer', question_answer_path(@question, answer), method: :delete, class: "button" %></p>
@@ -19,7 +20,7 @@
     <% end %>
 
     <% if answer.best %>
-    <%= "BEST ANSWER EVER" %>
+      <%= "BEST ANSWER EVER" %>
     <% end %>
 
     <div class="vote-buttons">

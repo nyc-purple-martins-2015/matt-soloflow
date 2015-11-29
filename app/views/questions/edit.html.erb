@@ -1,17 +1,16 @@
 <div class="edit-question">
-<h2>Edit or Delete Your Question</h2>
+  <h2>Edit or Delete Your Question</h2>
 
-<h2>Edit My Question</h2>
-<%= form_for @question, url: question_path(@question), method: :put do |f| %>
+  <h2>Edit My Question</h2>
+  <%= form_for @question, url: question_path(@question), method: :put do |f| %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
 
-  <p><%= f.label :title %></p>
-  <p><%= f.text_field :title %></p>
+    <p><%= f.label :content %></p>
+    <p><%= f.text_area :content %></p>
 
-  <p><%= f.label :content %></p>
-  <p><%= f.text_area :content %></p>
-
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
 </div>
 
 <p><%= link_to "Delete my Question", question_path(@question), method: :delete %></p>

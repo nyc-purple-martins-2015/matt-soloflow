@@ -10,15 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 body {
   background-color: white;
   font-family: Lato;
 }
-
-a { text-decoration: none; font-weight: bolder; }
 
 header {
   background-color: white;
@@ -42,7 +41,6 @@ navbar {
   text-align: right;
   width: 100%;
   padding: .4em;
-  margin-bottom: 1em;
 }
 
 .nav-link {
@@ -75,7 +73,7 @@ navbar {
   margin-bottom: .5em;
   padding: 15px;
   text-decoration: none;
-  /*border: 1px solid black;*/
+  border: 1px solid black;
 }
 
 .questions-container a {color: black;}
@@ -109,26 +107,6 @@ form.button_to {
 .new_vote {
   display: inline-block;
   }
-
-.data-display-container {
-  display: inline-block;
-  /*border: 1px solid black;*/
-  float: left;
-}
-
-.vote {
-  border: 1px solid black;
-  padding: 1em;
-  height: 2em;
-  width: 2em;
-}
-.answer {
-  border: 1px solid black;
-  padding: 1em;
-  height: 2em;
-  width: 2em;
-
-}
 
 .answers{
   border: 3px solid black;
@@ -167,7 +145,7 @@ form.button_to {
 }
 
 .user-notice {
-  text-align: left;
+  text-align: center;
   padding: 1em;
   margin-top: 1.2em;
 }
@@ -210,21 +188,20 @@ form.button_to {
   margin-bottom: .2em;
   text-decoration: none;
   color: black;
-  /*border: 3px solid black;*/
+  border: 3px solid black;
   padding: 1em;
-  /*border-radius: 5px;*/
+  border-radius: 5px;
 }
 
 .tag:hover { color: yellow; }
 
 
 .tags-container {
-  /*display: inline-block;*/
-  float: left;
-  /*text-align: left;*/
-  padding: .8em;
-  /*margin-left: 10%;*/
-  /*margin-right: 10%;*/
+  display: inline-block;
+  text-align: left;
+  padding: 1em;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: .5em;
 }
 
@@ -236,8 +213,6 @@ form.button_to {
   padding: 15px;
   text-decoration: none;
 }
-
-.answer-button {float: left; margin-left: 10%;}
 
 .response { background-color: #fffbea; padding: .7em; }
 .response a { color: black; }
@@ -251,77 +226,3 @@ form.button_to {
   margin-left: 10%;
   padding: .7em;
 }
-
-p.vote {
-  background-color: gray;
-  display: inline-block;
-  text-align: center;
-  font-size: 1em;
-  width: auto;
-}
-
-p.answer {
-  background-color: gray;
-  display: inline-block;
-  text-align: center;
-  font-size: 1em;
-  width: auto;
-
-}
-.dates {
-  float: left;
-  text-align: left;
-  font-size: .7em;
-  color: gray;
-  /*border: 1px solid black;*/
-  /*display: block;*/
-}
-
-.question-summary {
-  /*border-bottom: 1px solid gray;*/
-  width: auto;
-  height: -1em;
-  border-bottom: 1px solid black;
-}
-
-.summary {
-  display: inline-block;
-  padding: .5em;
-  clear: left;
-}
-
-.index-text {
-  /*text-align: right;*/
-  /*border: 1px solid black;*/
-  display: inline-block;
-}
-
-.layout-links {
-  text-align: right;
-}
-
-.nav-link {
-  margin-top: 3em;
-  color: black;
-  background-color: lightgray;
-  padding: 8px;
-}
-
-.nav-link:hover {background-color: orange;}
-
-.question-link {
-  display: inline-block;
-  float: left;
-  text-align: left;
-  margin-top: .1em;
-  margin-bottom: .1em;
-}
-
-.profile-link {
-  text-decoration: none;
-  color: white;
-}
-
-.container {display: inline-block;}
-
-.question-text {text-align: left; padding: 1em;}

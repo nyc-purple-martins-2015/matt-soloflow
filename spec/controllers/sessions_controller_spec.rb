@@ -18,7 +18,6 @@ describe SessionsController do
       get :new
       expect(@user).to be_a_kind_of(User)
     end
-
   end
 
   context "#create" do
@@ -46,7 +45,6 @@ describe SessionsController do
       post :create, user_hash
       expect(response).to redirect_to(login_path)
     end
-
   end
 
   context "#destroy" do
@@ -64,7 +62,6 @@ describe SessionsController do
       get :destroy
       expect(response).to redirect_to(questions_path)
     end
-
   end
 end
 

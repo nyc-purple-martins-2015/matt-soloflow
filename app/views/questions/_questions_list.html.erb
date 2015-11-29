@@ -1,16 +1,32 @@
 <div class="questions-container">
-      <% if @questions.any? %>
-        <% @questions.newest.each do |question| %>
-          <div>
-            <h3><%= link_to question.title, question_path(question) %></h3>
-            <p><%= question.content.first(50) %>...</p>
-            <p>By <%= link_to question.user.username, user_path(question.user.id) %></p>
-            <p>Posted on <%= question.formatted_creation_date %> |
-            Updated <%= question.formatted_last_updated %></p>
-            <p>Vote value: <%= question.votes.sum(:value) %> | Answers: <%= question.answers.length %></p>
-          </div>
-        <% end %>
-      <% else %>
-        <h2 class="user-notice">Nothing to see here.</h2>
-      <% end %>
+  <% if @questions.any? %>
+    <% @questions.newest.each do |question| %>
+
+      <div class="question-summary">
+        <div class="index-text">
+
+        <div class="data-display-container">
+          <p class="vote"><%= question.votes.sum(:value) %><br>Votes</p>
+          <p class="answer"><%= question.answers.length %><br>Answers</p>
+        </div>
+
+        <div class="summary">
+          <h3 class="question-link"><%= link_to question.title, question_path(question) %></h3><br>
+
+          <div class="tags-container">
+          <% question.tags.each do |tag| %>
+          <%= link_to tag.category, tag_path(tag.id), class: "tag" %>
+          <% end %>
+          </div><br>
+
+          <p class="dates">Asked on <%= question.formatted_creation_date %> |
+          Updated <%= question.formatted_last_updated %>
+          By <%= link_to question.user.username, user_path(question.user.id) %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    <h2 class="user-notice">Nothing to see here.</h2>
+  <% end %>
 </div>

@@ -1,42 +1,40 @@
-<div>
-
-   <div class="error">
-    <% if flash[:notice] %>
-      alert(<%= flash[:notice] %>)
-    <% end %>
-  </div>
-
-  <h2 class="page-header"> Tags: </h2>
-  <div class="tags-container">
-      <% @tags.each do |tag| %>
-        <%= link_to tag.category, tag_path(tag.id), class: "tag" %>
-      <% end %>
-  </div>
-
-  <div class="question-display">
-    <h2 class="user-notice"> <%= @question.title %> </h2>
-    <%= @question.content %>
-     <p>Vote value: <%= @question.votes.sum(:value) %></p>
-      <p> Answers: <%= @question.answers.length %> | Author: <%= link_to @question.user.username, user_path(@question.user.id) %> </p>
-
-  <div class="answer-button">
-    <%= button_to "Help #{@question.user.username}", new_question_answer_path(@question), method: :get, class: "button" %>
-  </div>
-
-<!-- FIXME: Breaks if user isn't logged in
- -->  <div class="edit-buttons">
-  <% if current_user.id == @question.user_id %>
-    <%= button_to 'Edit Question', edit_question_path(@question), method: :get, class: "button"  %> | <%= button_to 'Delete Question', question_path(@question), method: :delete, class: "button"  %>
+<div class="error">
+  <% if flash[:notice] %>
+    alert(<%= flash[:notice] %>)
   <% end %>
+</div>
+
+<!-- <h2 class="page-header">Tags:</h2> -->
+
+<div class="question-display">
+  <h2 class="user-notice"> <%= @question.title %> </h2>
+  <p class="question-text"><%= @question.content %></p>
+  <p class="vote">Votes: <%= @question.votes.sum(:value) %></p>
+  <p> <%= link_to @question.user.username, user_path(@question.user.id) %> asked on <%= @question.formatted_creation_date %></p>
+
+
+
+<div class="tags-container">
+    <% @tags.each do |tag| %>
+      <%= link_to tag.category, tag_path(tag.id), class: "tag" %>
+    <% end %>
+</div>
+
+  <div class="edit-buttons">
+    <% if current_user.id == @question.user_id %>
+      <%= button_to 'Edit', edit_question_path(@question), method: :get, class: "button"  %>
+      <%= button_to 'delete', question_path(@question), method: :delete, class: "button"  %>
+    <% end %>
   </div>
 
   <%= render partial: 'votes/new', layout: false, locals: {parent: @question} %>
 </div>
 
+<div class="answer-button">
+  <%= button_to "Answer", new_question_answer_path(@question), method: :get, class: "button" %>
 </div>
 
 <h2 class="page-header"> Comments: </h2>
-
 <div class="comments">
   <% @question.comments.each do |comment| %>
     <div class="response">
@@ -44,7 +42,7 @@
       <p><%= comment.content %> </p>
       <p>Posted on: <%= comment.formatted_creation_date %></p>
 
-      <p>Vote value: <%= comment.votes.sum(:value) %></p>
+      <p>Votes: <%= comment.votes.sum(:value) %></p>
 
       <%= render partial: 'votes/new', layout: false, locals: {parent: comment} %>
     </div>
@@ -52,7 +50,4 @@
   <%= render partial: 'comments/new', layout: false, locals: { type: @question} %>
 </div>
 
-
 <%= render  "answers/show_answer", layout: false %>
-
-

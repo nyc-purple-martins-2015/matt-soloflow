@@ -8,7 +8,6 @@ class AnswersController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @question = Question.find(params[:question_id])
-    #TODO: Refactor line 12 to not be hardcoded.
     @answer = @question.answers.new(content: answer_params[:content], user_id: @user.id)
     if @answer.save
       redirect_to question_path(@question)
@@ -47,8 +46,11 @@ class AnswersController < ApplicationController
   def best
     @answer = Answer.find(params[:answer])
     @answer.mark_as_best
-    @answer.save!
-    redirect_to question_path(@answer.question_id)
+    if @answer.save
+      redirect_to question_path(@answer.question_id)
+    else
+      @errors = @answer.errors.full_messages
+    end
   end
 
   private

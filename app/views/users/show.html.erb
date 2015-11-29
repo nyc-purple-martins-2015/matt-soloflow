@@ -4,27 +4,27 @@
   <% if user_questions? %>
     <h3> You asked: </h3>
     <% @user.questions.each do |question| %>
-    <p><%= link_to question.title, question_path(question) %></p>
+      <p><%= link_to question.title, question_path(question) %></p>
     <% end %>
-    <% else %>
-    <p> You have not asked any questions. </p>
+  <% else %>
+    <p>You have not asked any questions.</p>
   <% end %>
 
   <% if user_answers? %>
     <h3> You answered: </h3>
     <% @user.answers.each do |answer| %>
-    <p><%= link_to answer.content, question_path(answer.question_id) %></p>
+<p><%= link_to answer.content, question_path(answer.question_id) %></p>
     <% end %>
-    <% else %>
+  <% else %>
     <p> You have not answered any questions. </p>
   <% end %>
 
   <% if user_comments? %>
     <h3> Your comments: </h3>
     <% @user.comments.each do |comment| %>
-    <p><%= link_to comment.content, question_path(comment.commentable_id) %></p>
+      <p><%= link_to comment.content, question_path(comment.commentable_id) %></p>
     <% end %>
-    <% else %>
-    <p> You have not commented yet. </p>
+  <% else %>
+    <p>You have not commented yet.</p>
   <% end %>
 </div>

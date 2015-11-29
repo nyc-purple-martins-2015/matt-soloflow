@@ -1,18 +1,17 @@
 <h2 class="user-notice">Ask a new question here:</h2>
-<div class="create-answer">
+  <div class="create-answer">
+    <% if @errors %>
+      <ul>
+        <% @errors.each do |error| %>
+          <li class="alert"><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-<% if @errors %>
-    <ul><% @errors.each do |error| %>
-      <li class="alert"><%= error %></li>
-    <% end %></ul>
-  <% end %>
-
-<%= form_for @answer, url: question_answers_path(@question.id) do |f| %>
-
-  <p><%= f.label :content, "Your Answer:" %></p>
-  <p><%= f.text_area :content %></p>
-
-  <%= f.submit "Publish", class: "button" %>
-<% end %>
-</div>
+    <%= form_for @answer, url: question_answers_path(@question.id) do |f| %>
+    <p><%= f.label :content, "Your Answer:" %></p>
+    <p><%= f.text_area :content %></p>
+    <%= f.submit "Publish", class: "button" %>
+    <% end %>
+  </div>
 

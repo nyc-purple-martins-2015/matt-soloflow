@@ -1,9 +1,15 @@
-  <div class="page-header"><h2 > All Tags: </h2></div>
+<div class="container">
+<div class="page-header"><h2 >All Tags</h2></div>
+<div class="tag-links">
+  <%= link_to "Most Recent" %>
+  <%= link_to "Most Popular" %>
+  <%= link_to "Trending" %>
+</div>
+</div>
 
-  <div class="tags-container">
+<div class="tags-container">
   <% @tags.each do |tag| %>
-          <%= link_to tag.category, tag_path(tag.id), class: "tag"%>
+    <%= link_to tag.category, tag_path(tag.id), class: "tag"%>
   <% end %>
-    </div>
-
+</div>
 

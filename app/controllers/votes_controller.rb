@@ -17,7 +17,6 @@ def create
       end
     end
   end
-    #TODO: add JS/Jquery to have a popup alert without refreshing page or refreshing.
 end
 
 private
