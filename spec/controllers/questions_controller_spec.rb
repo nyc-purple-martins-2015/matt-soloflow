@@ -17,6 +17,7 @@ let(:tags) {FactoryGril.create(:tag)}
       get :index
       expect(assigns(:questions)).to eq(Question.all)
     end
+
   end
 
   context "#new" do
@@ -25,6 +26,7 @@ let(:tags) {FactoryGril.create(:tag)}
       get :new
       expect(assigns(:question)).to be_a_kind_of(Question)
     end
+
   end
 
   context "#create" do
@@ -55,5 +57,7 @@ let(:tags) {FactoryGril.create(:tag)}
       post :create, question: question_hash
       expect(response).to render_template(:new)
     end
+
   end
+
 end
