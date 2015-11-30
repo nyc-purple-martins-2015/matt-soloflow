@@ -11,5 +11,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  # TODO: Implement a only vote once helper here, could also be done through model validation.
+
   protect_from_forgery with: :exception
 end
